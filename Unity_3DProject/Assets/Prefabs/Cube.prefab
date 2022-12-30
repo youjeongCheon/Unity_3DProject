@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 635171490417866537}
   - component: {fileID: 635171490417866538}
   - component: {fileID: 635171490417866539}
+  - component: {fileID: -1939850585507321045}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   complexMaskingMode: 0
-  drawingMode: 1
+  drawingMode: 0
   outlineLayer: 0
   outlineTargets:
   - IsVisible: 0
@@ -188,3 +189,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderPipelineAsset: {fileID: 0}
+--- !u!114 &-1939850585507321045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635171490417866544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5d7f2aae8402948ba6ee35a08fc446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
