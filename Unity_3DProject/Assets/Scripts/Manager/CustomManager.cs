@@ -5,10 +5,14 @@ using EPOOutline;
 
 public class CustomManager : SingleTon<CustomManager>
 {
+    private List<Custom> customs = new List<Custom>();
+
     public GameObject curSelected;
     public GameObject preSelected;
 
     public CustomState customState;
+
+
 
     public void ChangeSeleted(GameObject gameObject)
     {
@@ -26,6 +30,16 @@ public class CustomManager : SingleTon<CustomManager>
         curOutlinable.DrawingMode = OutlinableDrawingMode.Normal;
     }
 
+    public void AddCustom(Custom custom)
+    {
+        customs.Add(custom);
+    }
+
+    public void DeleteCustom(Custom custom)
+    {
+        customs.Remove(custom);
+        Destroy(custom.gameObject);
+    }
    
 
 }
