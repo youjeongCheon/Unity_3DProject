@@ -7,12 +7,13 @@ public class MoveArrow : MonoBehaviour
     [SerializeField]
     private Vector3 moveAxis;
 
-    private Vector3 clickPosition;
     private Transform parentTransform;
     private Vector3 distance;
 
     private void Awake()
     {
+        gameObject.SetActive(false);
+
         parentTransform = transform.parent;
         transform.position += new Vector3(parentTransform.position.x + 0.5f * parentTransform.lossyScale.x * moveAxis.x,
                                          parentTransform.position.y + 0.5f * parentTransform.lossyScale.y * moveAxis.y,
