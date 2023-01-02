@@ -37,8 +37,6 @@ public class CustomCamereController : MonoBehaviour
     {
         if (CustomManager.Instance.curSelected != null)
             target = CustomManager.Instance.curSelected;
-
-        Debug.Log(target.name);
     }
 
     private void Move()
