@@ -22,6 +22,8 @@ public class CustomCamereController : MonoBehaviour
     private void Awake()
     {
         Camera = GetComponent<CinemachineVirtualCamera>();
+        Camera.LookAt = target.transform;
+        
     }
 
     private void Update()
@@ -31,10 +33,20 @@ public class CustomCamereController : MonoBehaviour
         Limit();
     }
 
+    private void setTarget()
+    {
+        if (CustomManager.Instance.curSelected != null)
+            target = CustomManager.Instance.curSelected;
+
+        Debug.Log(target.name);
+    }
+
     private void Move()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
+            setTarget();
+
             xRotateMove = Input.GetAxis("Mouse X") * Time.deltaTime * rotateSpeed;
             yRotateMove = Input.GetAxis("Mouse Y") * Time.deltaTime * rotateSpeed;
 

@@ -2831,4 +2831,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveAxis: {x: 0, y: 1, z: 0}
-  moveSpeed: 5
+  moveSpeed: 1

@@ -11,25 +11,21 @@ public class Toolbar : MonoBehaviour
 
     public void Selet()
     {
-        CameraActive();
          CustomManager.Instance.customState= CustomState.Selet;
     }
 
     public void Move()
     {
-        CamraDeactivate();
         CustomManager.Instance.customState = CustomState.Move;
     }
 
     public void Rotate()
     {
-        CamraDeactivate();
         CustomManager.Instance.customState = CustomState.Rotate;
     }
 
     public void Scale()
     {
-        CamraDeactivate();
         CustomManager.Instance.customState = CustomState.Scale;
     }
 
@@ -37,15 +33,4 @@ public class Toolbar : MonoBehaviour
     {
         Destroy(CustomManager.Instance.curSelected);
     }
-
-    private void CameraActive()
-    {
-        customCamera.SetActive(true);
-    }
-
-    private void CamraDeactivate()
-    {
-        customCamera.SetActive(false);
-    }
-
 }

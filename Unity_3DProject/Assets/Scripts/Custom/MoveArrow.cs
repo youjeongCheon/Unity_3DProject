@@ -27,12 +27,12 @@ public class MoveArrow : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Vector3 move = Input.mousePosition - clickPosition;
+        Vector3 move = Input.mousePosition;
         Vector3 pos = parentTransform.position;
 
-        pos.x += moveAxis.x * move.x * moveSpeed * Time.deltaTime;
-        pos.y += moveAxis.y * move.y * moveSpeed * Time.deltaTime;
-        pos.z += moveAxis.z * move.z * moveSpeed * Time.deltaTime;
+        pos.x += moveAxis.x * move.x;
+        pos.y += moveAxis.y * move.y;
+        pos.z += moveAxis.z * move.z;
 
         parentTransform.position = pos;
 
