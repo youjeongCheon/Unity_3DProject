@@ -3115,7 +3115,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1503114985}
         m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
-        m_MethodName: Select
+        m_MethodName: Click
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3741,7 +3741,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682194621}
-  m_LocalRotation: {x: 0.16534398, y: -0.000000016969553, z: 0.0000000028449714, w: 0.986236}
+  m_LocalRotation: {x: 0.16534397, y: 0.000000016969551, z: -0.0000000028449707, w: 0.986236}
   m_LocalPosition: {x: 0, y: 3.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4155,7 +4155,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869508887}
-  m_LocalRotation: {x: 0.16534398, y: -0.000000016969553, z: 0.0000000028449714, w: 0.986236}
+  m_LocalRotation: {x: 0.16534397, y: 0.000000016969551, z: -0.0000000028449707, w: 0.986236}
   m_LocalPosition: {x: 0, y: 3.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
