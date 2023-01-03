@@ -19,7 +19,7 @@ public class ScaleArrow : MonoBehaviour
                                          parentTransform.position.y + 0.5f * parentTransform.lossyScale.y * scaleAxis.y,
                                          parentTransform.position.z + 0.5f * parentTransform.lossyScale.z * scaleAxis.z);
     }
-
+/*
     private void OnEnable()
     {
         transform.parent = null;
@@ -28,7 +28,7 @@ public class ScaleArrow : MonoBehaviour
     private void OnDisable()
     {
         transform.parent = parentTransform;
-    }
+    }*/
 
     private void OnMouseUp()
     {

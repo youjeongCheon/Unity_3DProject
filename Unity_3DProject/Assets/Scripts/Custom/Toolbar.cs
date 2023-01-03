@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum CustomState { Selet, Move, Rotate, Scale} 
@@ -9,28 +7,28 @@ public class Toolbar : MonoBehaviour
     public void Selet()
     {
         CustomManager.Instance.customState= CustomState.Selet;
-        ArrowDeactive();
+        MoveDeactive();
         ScaleDeactive();
     }
 
     public void Move()
     {
         CustomManager.Instance.customState = CustomState.Move;
-        ArrowActive();
+        MoveActive();
         ScaleDeactive();
     }
 
     public void Rotate()
     {
         CustomManager.Instance.customState = CustomState.Rotate;
-        ArrowDeactive();
+        MoveDeactive();
         ScaleDeactive();
     }
 
     public void Scale()
     {
         CustomManager.Instance.customState = CustomState.Scale;
-        ArrowDeactive();
+        MoveDeactive();
         ScaleActive();
     }
 
@@ -40,7 +38,7 @@ public class Toolbar : MonoBehaviour
 
     }
 
-    private void ArrowActive()
+    private void MoveActive()
     {
         MoveArrow[] moveArrows;
         moveArrows = CustomManager.Instance.curSelected.GetComponentsInChildren<MoveArrow>(true);
@@ -50,7 +48,7 @@ public class Toolbar : MonoBehaviour
         }
     }
 
-    private void ArrowDeactive()
+    private void MoveDeactive()
     {
         MoveArrow[] moveArrows;
         moveArrows = CustomManager.Instance.curSelected.GetComponentsInChildren<MoveArrow>(true);
