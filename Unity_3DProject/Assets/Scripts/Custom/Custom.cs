@@ -9,7 +9,7 @@ public class Custom : MonoBehaviour
         switch (CustomManager.Instance.customState)
         {
             case CustomState.Selet:
-                CustomManager.Instance.ChangeSeleted(this.gameObject);
+                CustomManager.Instance.ChangeSeleted(gameObject.transform.parent.gameObject);
                 break;
             case CustomState.Move:
 

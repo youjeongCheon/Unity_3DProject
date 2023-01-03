@@ -5,7 +5,7 @@ using EPOOutline;
 
 public class CustomManager : SingleTon<CustomManager>
 {
-    private List<Custom> customs = new List<Custom>();
+    private List<GameObject> listobject = new List<GameObject>();
 
     public GameObject curSelected;
     public GameObject preSelected;
@@ -23,22 +23,22 @@ public class CustomManager : SingleTon<CustomManager>
         }
         if(preSelected!=null)
         {
-            Outlinable preOutlinable = preSelected.GetComponent<Outlinable>();
+            Outlinable preOutlinable = preSelected.GetComponentInChildren<Outlinable>();
             preOutlinable.DrawingMode = 0;
         }
-        Outlinable curOutlinable = curSelected.GetComponent<Outlinable>();
+        Outlinable curOutlinable = curSelected.GetComponentInChildren<Outlinable>();
         curOutlinable.DrawingMode = OutlinableDrawingMode.Normal;
     }
 
-    public void AddCustom(Custom custom)
+    public void AddListobject(GameObject gameObject)
     {
-        customs.Add(custom);
+        listobject.Add(gameObject);
     }
 
-    public void DeleteCustom(Custom custom)
+    public void DeleteListobject(GameObject gameObject)
     {
-        customs.Remove(custom);
-        Destroy(custom.gameObject);
+        listobject.Remove(gameObject);
+        Destroy(gameObject);
     }
    
 

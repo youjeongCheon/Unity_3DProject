@@ -8,25 +8,29 @@ public class MoveArrow : MonoBehaviour
     private Vector3 moveAxis;
 
     private Transform parentTransform;
+    private Transform GFX;
+    private Vector3 beginningPosition;
+
     private Vector3 distance;
 
     private void Awake()
     {
+        beginningPosition = transform.position;
         gameObject.SetActive(false);
-
-        parentTransform = transform.parent;
-        transform.position += new Vector3(parentTransform.position.x + 0.5f * parentTransform.lossyScale.x * moveAxis.x,
-                                         parentTransform.position.y + 0.5f * parentTransform.lossyScale.y * moveAxis.y,
-                                         parentTransform.position.z + 0.5f * parentTransform.lossyScale.z * moveAxis.z);
+        parentTransform = transform.parent.parent;
+        GFX = parentTransform.GetChild(0);
+        transform.position = beginningPosition + new Vector3(parentTransform.position.x + 0.5f * GFX.localScale.x * moveAxis.x,
+                                                                      parentTransform.position.y + 0.5f * GFX.localScale.y * moveAxis.y,
+                                                                      parentTransform.position.z + 0.5f * GFX.localScale.z * moveAxis.z);
     }
 
-    private void OnMouseUp()
+    private void OnEnable()
     {
-        // distance √ ±‚»≠
-        distance = Vector3.zero;
+        transform.position = Vector3.zero;
+        transform.position = beginningPosition + new Vector3(parentTransform.position.x + 0.5f * GFX.localScale.x * moveAxis.x,
+                                                                     parentTransform.position.y + 0.5f * GFX.localScale.y * moveAxis.y,
+                                                                     parentTransform.position.z + 0.5f * GFX.localScale.z * moveAxis.z);
     }
-
-
 
     private void OnMouseDrag()
     {
