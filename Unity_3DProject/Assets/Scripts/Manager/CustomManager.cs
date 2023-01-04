@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using EPOOutline;
 
+public enum CustomState { Selet, Move, Rotate, Scale, Create }
+
 public class CustomManager : SingleTon<CustomManager>
 {
     private List<GameObject> listobject = new List<GameObject>();
 
+    public GameObject createObject;
     public GameObject curSelected;
     public GameObject preSelected;
 
@@ -39,6 +42,13 @@ public class CustomManager : SingleTon<CustomManager>
     {
         listobject.Remove(gameObject);
         Destroy(gameObject);
+    }
+
+    public void CreateObject()
+    {
+        GameObject gameObject = Instantiate(createObject);
+        ChangeSeleted(gameObject);
+        AddListobject(gameObject);
     }
    
 

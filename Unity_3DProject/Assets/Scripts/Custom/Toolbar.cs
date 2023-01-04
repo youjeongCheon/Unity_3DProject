@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum CustomState { Selet, Move, Rotate, Scale} 
+
 
 public class Toolbar : MonoBehaviour
 {
@@ -36,6 +36,12 @@ public class Toolbar : MonoBehaviour
     {
         Destroy(CustomManager.Instance.curSelected);
 
+    }
+
+    public void Create()
+    {
+        MoveDeactive();
+        ScaleDeactive();
     }
 
     private void MoveActive()

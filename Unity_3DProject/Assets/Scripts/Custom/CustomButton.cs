@@ -7,19 +7,22 @@ public class CustomButton : MonoBehaviour
 {
     [SerializeField]
     private GameObject prefab;
-    
+
     public void Click()
     {
-        GameObject customObject=  Instantiate(prefab);
-        Custom custom = customObject.GetComponentInChildren<Custom>();
-        if(CustomManager.Instance.curSelected!=null)
+        CustomManager.Instance.createObject = prefab;
+        CustomManager.Instance.customState = CustomState.Create;
+        
+        if(CustomManager.Instance.curSelected==null)
+        {
+            CustomManager.Instance.CreateObject();
+            CustomManager.Instance.customState = CustomState.Selet;
+        }
+        else
         {
             Toolbar toolbar = FindObjectOfType<Toolbar>();
-            toolbar.Selet();
-        }
-        CustomManager.Instance.ChangeSeleted(customObject);
-        CustomManager.Instance.AddListobject(customObject);
-        
+            toolbar.Create();
 
+        }
     }
 }

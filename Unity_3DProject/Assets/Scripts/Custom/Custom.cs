@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Custom : MonoBehaviour
 {
+    public bool isCreated  { get; set; }
+
+    private void Awake()
+    {
+        isCreated = true;
+    }
+
     private void OnMouseDown()
     {
         switch (CustomManager.Instance.customState)
@@ -21,12 +28,6 @@ public class Custom : MonoBehaviour
 
                 break;
 
-
         }
     }
-
-   
-
-
-
 }
