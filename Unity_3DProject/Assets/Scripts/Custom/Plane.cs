@@ -52,8 +52,10 @@ public class Plane : MonoBehaviour
                     {
                         Vector3 dir = transform.up;
                         Vector3 createposition = hit.point + dir*0.5f;
+                        Quaternion createRotation = Quaternion.FromToRotation(Vector3.forward, hit.normal);
 
                         curSelected.transform.position = createposition;
+                        curSelected.transform.rotation = createRotation;
                         custom.isCreated = false;
                     }
                     
