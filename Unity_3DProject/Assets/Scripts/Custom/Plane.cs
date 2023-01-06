@@ -60,7 +60,6 @@ public class Plane : MonoBehaviour
                     }
                     
                     CustomManager.Instance.customState = CustomState.Selet;
-                    Debug.Log(CustomManager.Instance.customState);
                 }
                 break;
         }

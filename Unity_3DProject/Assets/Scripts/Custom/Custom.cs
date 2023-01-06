@@ -5,6 +5,7 @@ using UnityEngine;
 public class Custom : MonoBehaviour
 {
     public bool isCreated  { get; set; }
+    GameObject curSeleted;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class Custom : MonoBehaviour
         switch (CustomManager.Instance.customState)
         {
             case CustomState.Selet:
-                CustomManager.Instance.ChangeSeleted(gameObject.transform.parent.gameObject);
+                CustomManager.Instance.ChangeSeleted(gameObject.transform.root.gameObject);
                 break;
             case CustomState.Move:
 

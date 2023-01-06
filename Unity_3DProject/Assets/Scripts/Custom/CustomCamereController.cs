@@ -67,8 +67,8 @@ public class CustomCamereController : MonoBehaviour
         /*if (transform.position.y < 1)
             transform.position = new Vector3(transform.position.x, 1, transform.position.z);*/
 
-        if(Camera.m_Lens.FieldOfView<10|| Camera.m_Lens.FieldOfView>100)
-            Camera.m_Lens.FieldOfView= Mathf.Clamp(Camera.m_Lens.FieldOfView, 10, 100);
+       /* if(Camera.m_Lens.FieldOfView<10|| Camera.m_Lens.FieldOfView>100)
+            Camera.m_Lens.FieldOfView= Mathf.Clamp(Camera.m_Lens.FieldOfView, 10, 100);*/
     }
 }
         

@@ -49,11 +49,11 @@ public class ScaleArrow : MonoBehaviour
 		Vector3 drag = Input.mousePosition - startScreen;
 		gfxTransform.localScale = startScale;
 
-		gfxTransform.localScale += Mathf.Abs(scaleAxis.x) * xDot * drag.x * scaleSpeed * Vector3.right;
-		gfxTransform.localScale += Mathf.Abs(scaleAxis.x) * yDot * drag.y * scaleSpeed * Vector3.right;
-		gfxTransform.localScale += Mathf.Abs(scaleAxis.y) * xDot * drag.x * scaleSpeed * Vector3.up;
-		gfxTransform.localScale += Mathf.Abs(scaleAxis.y) * yDot * drag.y * scaleSpeed * Vector3.up;
-		gfxTransform.localScale += Mathf.Abs(scaleAxis.z) * xDot * drag.x * scaleSpeed * Vector3.forward;
-		gfxTransform.localScale += Mathf.Abs(scaleAxis.z) * yDot * drag.y * scaleSpeed * Vector3.forward;
+		gfxTransform.localScale += (scaleAxis.x) * xDot * drag.x * scaleSpeed * Vector3.right;
+		gfxTransform.localScale += (scaleAxis.x) * yDot * drag.y * scaleSpeed * Vector3.right;
+		gfxTransform.localScale += (scaleAxis.y) * xDot * drag.x * scaleSpeed * Vector3.up;
+		gfxTransform.localScale += (scaleAxis.y) * yDot * drag.y * scaleSpeed * Vector3.up;
+		gfxTransform.localScale += (scaleAxis.z) * xDot * drag.x * scaleSpeed * Vector3.forward;
+		gfxTransform.localScale += (scaleAxis.z) * yDot * drag.y * scaleSpeed * Vector3.forward;
 	}
 }
