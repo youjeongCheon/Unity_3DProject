@@ -1752,7 +1752,7 @@ GameObject:
   - component: {fileID: 869739334}
   - component: {fileID: 869739337}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: WheelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3115ce41c5f4f684791ac8b1bcd4f084, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 536e18057bef9784d9a64a6e2b6d9795, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1885,7 +1885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c92de27f1bab74cb30ae485227a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3205406799527388693, guid: 67fef84b57fe9c34798659dfb585f854, type: 3}
+  prefab: {fileID: 1949038104039775291, guid: 6b0bc13eccb03b44a80f7173bf88cc4a, type: 3}
 --- !u!1 &911960996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3068,7 +3068,7 @@ GameObject:
   - component: {fileID: 1503114982}
   - component: {fileID: 1503114985}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CubeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3201,7 +3201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c92de27f1bab74cb30ae485227a06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 7896144783071985696, guid: e82491426f0f6654c8b928811f19b28d, type: 3}
+  prefab: {fileID: 3205406799527388693, guid: 67fef84b57fe9c34798659dfb585f854, type: 3}
 --- !u!1 &1568700797
 GameObject:
   m_ObjectHideFlags: 0
@@ -3767,7 +3767,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682194621}
-  m_LocalRotation: {x: 0.16534397, y: 0.000000016969551, z: -0.0000000028449707, w: 0.986236}
+  m_LocalRotation: {x: 0.16534398, y: -0.000000016969553, z: 0.0000000028449714, w: 0.986236}
   m_LocalPosition: {x: 0, y: 3.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4181,7 +4181,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869508887}
-  m_LocalRotation: {x: 0.16534397, y: 0.000000016969551, z: -0.0000000028449707, w: 0.986236}
+  m_LocalRotation: {x: 0.16534398, y: -0.000000016969553, z: 0.0000000028449714, w: 0.986236}
   m_LocalPosition: {x: 0, y: 3.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

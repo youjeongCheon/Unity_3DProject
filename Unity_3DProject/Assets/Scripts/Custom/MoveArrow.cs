@@ -4,57 +4,55 @@ using UnityEngine;
 
 public class MoveArrow : MonoBehaviour
 {
-    [SerializeField]
-    private Vector3 moveAxis;
+	[SerializeField]
+	private Vector3 moveAxis;
+	[SerializeField]
+	private float moveSpeed;
+	[SerializeField]
+	private float positionOffset;
 
-    private Transform parentTransform;
-    private Transform GFX;
-    private Vector3 beginningPosition;
+	private Transform rootTransform;
+	private Transform gfxTransform;
 
-    private Vector3 distance;
+	private Vector3 startPosition;
+	private Vector3 startScreen;
+	private float xDot;
+	private float yDot;
 
-    private void Awake()
-    {
-        beginningPosition = transform.position;
-        gameObject.SetActive(false);
-        parentTransform = transform.parent.parent;
-        GFX = parentTransform.GetChild(0);
-        transform.position = beginningPosition + new Vector3(parentTransform.position.x + 0.5f * GFX.localScale.x * moveAxis.x,
-                                                                      parentTransform.position.y + 0.5f * GFX.localScale.y * moveAxis.y,
-                                                                      parentTransform.position.z + 0.5f * GFX.localScale.z * moveAxis.z);
-    }
+	private void Awake()
+	{
+		rootTransform = transform.parent.parent;
+		gfxTransform = rootTransform.GetChild(0);
+		gameObject.SetActive(false);
+	}
 
-    private void OnEnable()
-    {
-        transform.position = Vector3.zero;
-        transform.position = beginningPosition + new Vector3(parentTransform.position.x + 0.5f * GFX.localScale.x * moveAxis.x,
-                                                                     parentTransform.position.y + 0.5f * GFX.localScale.y * moveAxis.y,
-                                                                     parentTransform.position.z + 0.5f * GFX.localScale.z * moveAxis.z);
-    }
+	private void Update()
+	{
+		transform.position = gfxTransform.position;
+		transform.position += (gfxTransform.localScale.x * 0.5f + positionOffset) * moveAxis.x * gfxTransform.right;
+		transform.position += (gfxTransform.localScale.y * 0.5f + positionOffset) * moveAxis.y * gfxTransform.up;
+		transform.position += (gfxTransform.localScale.z * 0.5f + positionOffset) * moveAxis.z * gfxTransform.forward;
+	}
 
-    private void OnMouseDrag()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * 1000, Color.green);
+	private void OnMouseDown()
+	{
+		startPosition = rootTransform.position;
+		startScreen = Input.mousePosition;
 
-        int layerMask = 1 << LayerMask.NameToLayer("Arrow");
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity,layerMask))
-        {
-            if (distance == Vector3.zero) distance = parentTransform.position - hit.point;
+		xDot = Vector3.Dot(transform.right, Camera.main.transform.right);
+		yDot = Vector3.Dot(transform.right, Camera.main.transform.up);
+	}
 
-            if (moveAxis.x != 0)
-                parentTransform.position = new Vector3( hit.point.x+distance.x,
-                                                        parentTransform.position.y,
-                                                        parentTransform.position.z);
-            else if (moveAxis.y != 0)
-                parentTransform.position = new Vector3( parentTransform.position.x,
-                                                        hit.point.y+distance.y,
-                                                        parentTransform.position.z);
-           else if (moveAxis.z != 0)
-                parentTransform.position = new Vector3( parentTransform.position.x,
-                                                        parentTransform.position.y,
-                                                        hit.point.z+distance.z);
-        }
-    }
+	private void OnMouseDrag()
+	{
+		Vector3 drag = Input.mousePosition - startScreen;
+		rootTransform.position = startPosition;
+
+		rootTransform.position += Mathf.Abs( moveAxis.x) * xDot * drag.x * moveSpeed * rootTransform.right;
+		rootTransform.position += Mathf.Abs( moveAxis.x) * yDot * drag.y * moveSpeed * rootTransform.right;
+		rootTransform.position += Mathf.Abs( moveAxis.y) * xDot * drag.x * moveSpeed * rootTransform.up;
+		rootTransform.position += Mathf.Abs( moveAxis.y) * yDot * drag.y * moveSpeed * rootTransform.up;
+		rootTransform.position += Mathf.Abs( moveAxis.z) * xDot * drag.x * moveSpeed * rootTransform.forward;
+		rootTransform.position += Mathf.Abs( moveAxis.z) * yDot * drag.y * moveSpeed * rootTransform.forward;
+	}
 }
