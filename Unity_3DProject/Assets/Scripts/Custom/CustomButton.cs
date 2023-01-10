@@ -13,7 +13,7 @@ public class CustomButton : MonoBehaviour
         CustomManager.Instance.createObject = prefab;
         CustomManager.Instance.customState = CustomState.Create;
         
-        if(CustomManager.Instance.curSelected==null)
+        if(CustomManager.Instance.curSelected==null&& CustomManager.Instance.preSelected==null)
         {
             CustomManager.Instance.CreateObject();
             CustomManager.Instance.customState = CustomState.Selet;
