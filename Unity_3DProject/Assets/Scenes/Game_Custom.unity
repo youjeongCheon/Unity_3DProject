@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3496,7 +3496,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682194621}
-  m_LocalRotation: {x: 0.16534398, y: -0.000000016969553, z: 0.0000000028449714, w: 0.986236}
+  m_LocalRotation: {x: 0.16534397, y: 0.000000016969551, z: -0.0000000028449707, w: 0.986236}
   m_LocalPosition: {x: 0, y: 3.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3910,7 +3910,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869508887}
-  m_LocalRotation: {x: 0.16534398, y: -0.000000016969553, z: 0.0000000028449714, w: 0.986236}
+  m_LocalRotation: {x: 0.16534397, y: 0.000000016969551, z: -0.0000000028449707, w: 0.986236}
   m_LocalPosition: {x: 0, y: 3.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4025,8 +4025,9 @@ GameObject:
   - component: {fileID: 1962202703}
   - component: {fileID: 1962202702}
   - component: {fileID: 1962202701}
+  - component: {fileID: 1962202704}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: 'JointButton '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4096,7 +4097,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1962202702}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1962202704}
+        m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
+        m_MethodName: Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1962202702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4117,7 +4130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3115ce41c5f4f684791ac8b1bcd4f084, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4135,6 +4148,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962202699}
   m_CullTransparentMesh: 1
+--- !u!114 &1962202704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962202699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54c92de27f1bab74cb30ae485227a06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1066296923542719476, guid: 2673f93fc10d950459db38105eeffae9, type: 3}
 --- !u!1 &1989461562
 GameObject:
   m_ObjectHideFlags: 0
