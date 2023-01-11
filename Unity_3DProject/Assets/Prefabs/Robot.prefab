@@ -431,13 +431,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3484236269939581346}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &3484236270376992928
 GameObject:
@@ -555,6 +555,10 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.x
       value: 1.58
       objectReference: {fileID: 0}
+    - target: {fileID: 5701255106136611986, guid: 8676633c443a05b40965cdd0d6ce2a94, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6058100831809127642, guid: 8676633c443a05b40965cdd0d6ce2a94, type: 3}
       propertyPath: m_Name
       value: Wheel_Joint
@@ -633,6 +637,10 @@ PrefabInstance:
     - target: {fileID: 5701255106136611985, guid: 8676633c443a05b40965cdd0d6ce2a94, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 5701255106136611986, guid: 8676633c443a05b40965cdd0d6ce2a94, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6058100831809127642, guid: 8676633c443a05b40965cdd0d6ce2a94, type: 3}
       propertyPath: m_Name
@@ -754,8 +762,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1066296924341759985, guid: 2673f93fc10d950459db38105eeffae9, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066296924341759985, guid: 2673f93fc10d950459db38105eeffae9, type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066296925445973436, guid: 2673f93fc10d950459db38105eeffae9, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1066296925445973437, guid: 2673f93fc10d950459db38105eeffae9, type: 3}
       propertyPath: m_Anchor.y
@@ -803,6 +819,10 @@ PrefabInstance:
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 3484236269939581345}
+    - target: {fileID: 5701255106136611986, guid: 8676633c443a05b40965cdd0d6ce2a94, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5701255106136611987, guid: 8676633c443a05b40965cdd0d6ce2a94, type: 3}
       propertyPath: rotationSpeed
       value: -50
@@ -882,6 +902,10 @@ PrefabInstance:
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 3484236269939581345}
+    - target: {fileID: 5701255106136611986, guid: 8676633c443a05b40965cdd0d6ce2a94, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5701255106136611987, guid: 8676633c443a05b40965cdd0d6ce2a94, type: 3}
       propertyPath: rotationSpeed
       value: -50

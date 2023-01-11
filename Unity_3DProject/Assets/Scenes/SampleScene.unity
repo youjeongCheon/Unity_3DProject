@@ -1692,9 +1692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7be6695abee924ba9ac81581dd37d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid: {fileID: 0}
-  moveSpeed: 10
-  rotateSpeed: 5
 --- !u!1 &1935364235 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6058100831809127642, guid: 8676633c443a05b40965cdd0d6ce2a94, type: 3}
@@ -1735,7 +1732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4921323799083231646, guid: 3f5bc0b6bcc394bef89ced1625933b6c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.55
+      value: 1.74
       objectReference: {fileID: 0}
     - target: {fileID: 4921323799083231646, guid: 3f5bc0b6bcc394bef89ced1625933b6c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1811,11 +1808,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3484236269939581347, guid: af039d3f9123d2b418b7eb4fa82bc4d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.83
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 3484236269939581347, guid: af039d3f9123d2b418b7eb4fa82bc4d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3484236269939581347, guid: af039d3f9123d2b418b7eb4fa82bc4d0, type: 3}
       propertyPath: m_LocalRotation.w
