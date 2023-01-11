@@ -5,11 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class HingeJoint : MonoBehaviour
 {
-    private Rigidbody rigidbody;
+    private Rigidbody rigid;
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -17,17 +17,17 @@ public class HingeJoint : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             
-            rigidbody.angularVelocity = transform.forward;
+            rigid.angularVelocity = transform.forward;
            
         }
         else if(Input.GetMouseButton(1))
         {
-            rigidbody.angularVelocity = -transform.forward;
+            rigid.angularVelocity = -transform.forward;
         }
 
         else
         {
-            rigidbody.angularVelocity = Vector3.zero;
+            rigid.angularVelocity = Vector3.zero;
         }
         
     }

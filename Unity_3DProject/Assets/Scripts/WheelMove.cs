@@ -2,21 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class WheelMove : MonoBehaviour
 {
     private Rigidbody rigid;
+    private Transform playerTransform;
+
     [SerializeField]
-    private float moveSpeed;
+    private float moveSpeed = 10;
+    [SerializeField]
+    private float rotateSpeed = 5;
 
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
+        playerTransform = transform.root;
+        rigid = playerTransform.GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        
-        rigid.velocity = -transform.right * Input.GetAxis("Vertical") * moveSpeed;
+        Move();
+        Rotate();
+    }
+
+
+    private void Move()
+    {
+        rigid.velocity = playerTransform.forward * Input.GetAxis("Vertical") * moveSpeed;
+    }
+
+    private void Rotate()
+    {
+        Quaternion dir = Quaternion.Euler(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+        playerTransform.rotation *= dir;
     }
 }
