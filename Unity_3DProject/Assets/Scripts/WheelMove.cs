@@ -27,7 +27,7 @@ public class WheelMove : MonoBehaviour
 
     private void Move()
     {
-        rigid.velocity = playerTransform.forward * Input.GetAxis("Vertical") * moveSpeed;
+        rigid.velocity = playerTransform.forward * Input.GetAxis("Vertical") * moveSpeed + Vector3.up * rigid.velocity.y;
     }
 
     private void Rotate()
