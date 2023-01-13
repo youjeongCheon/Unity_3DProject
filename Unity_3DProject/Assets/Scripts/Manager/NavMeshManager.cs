@@ -11,6 +11,7 @@ public class NavMeshManager : SingleTon<NavMeshManager>
     [SerializeField]
     private float spawnDelay;
     private Coroutine spawnRoutine;
+    private int NPCcount = 0;
 
     [Header("Way")]
     [SerializeField]
@@ -25,6 +26,7 @@ public class NavMeshManager : SingleTon<NavMeshManager>
     public override void Awake()
     {
         GetWayPoints();
+        GetGoalPoints();
     }
 
     private void Start()
@@ -41,9 +43,18 @@ public class NavMeshManager : SingleTon<NavMeshManager>
         }
     }
 
+    private void GetGoalPoints()
+    {
+        goalPoints = new List<Transform>();
+        for (int i = 0; i < goal.childCount; i++)
+        {
+            goalPoints.Add(goal.GetChild(i));
+        }
+    }
+
     public Transform GetGoalPoint()
     {
-        int rand = Random.Range(0, goal.childCount);
+        int rand = Random.Range(0, goalPoints.Count);
         Transform newGoal = goalPoints[rand];
         goalPoints.RemoveAt(rand);
         return newGoal;
@@ -59,7 +70,12 @@ public class NavMeshManager : SingleTon<NavMeshManager>
         while (true)
         {
             yield return new WaitForSeconds(spawnDelay);
-            Instantiate(npcPrefabs, wayPoints.First().position, Quaternion.identity);
+            if(NPCcount<6)
+            {
+                Instantiate(npcPrefabs, wayPoints.First().position, Quaternion.identity);
+                NPCcount++;
+            }
+            
         }
     }
 }
