@@ -15,6 +15,9 @@ public class NPC : MonoBehaviour
     private int curWayIndex = 0;
     private int GFXcount = 10;
 
+    private Coroutine clapRoutine;
+    private bool isSuccesse=false;
+
     private void Awake()
     {
         SetGFX();
@@ -70,5 +73,23 @@ public class NPC : MonoBehaviour
         int rand = Random.Range(0, GFXcount);
         Transform GFX = transform.GetChild(0).GetChild(rand);
         GFX.gameObject.SetActive(true);
+    }
+
+    public void OnSuccess()
+    {   
+        isSuccesse = true;
+        anim.SetTrigger("Clapping");
+        clapRoutine = StartCoroutine(ClapRoutine());
+    }
+
+    private IEnumerator ClapRoutine()
+    {
+        while (isSuccesse)
+        {
+            Debug.Log("Success!");
+            yield return new WaitForSeconds(3);
+            //anim.SetTrigger("StopClapping");
+            isSuccesse = false;
+        }
     }
 }
