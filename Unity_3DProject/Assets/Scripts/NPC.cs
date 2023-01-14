@@ -11,7 +11,7 @@ public class NPC : MonoBehaviour
     private Animator anim;
     private Rigidbody rigid;
     private Transform goal;
-    private Transform seat;
+    private Seat seat;
     private int curWayIndex = 0;
     private int GFXcount = 10;
 
@@ -51,8 +51,9 @@ public class NPC : MonoBehaviour
     private void OnArriveEndPoint()
     {
         agent.enabled = false;
-        seat = goal.GetChild(0);
-        transform.root.position = seat.position;
+        seat = goal.GetComponentInChildren<Seat>();
+        seat.NPCseat(this);
+        transform.root.position = seat.transform.position;
         rigid.angularVelocity = Vector3.zero;
         if (seat.gameObject.name == "SeatF")
             transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -76,9 +77,9 @@ public class NPC : MonoBehaviour
     }
 
     public void OnSuccess()
-    {   
+    {
         isSuccesse = true;
-        anim.SetTrigger("Clapping");
+        anim.SetBool("IsClapping",true);
         clapRoutine = StartCoroutine(ClapRoutine());
     }
 
@@ -86,9 +87,8 @@ public class NPC : MonoBehaviour
     {
         while (isSuccesse)
         {
-            Debug.Log("Success!");
             yield return new WaitForSeconds(3);
-            //anim.SetTrigger("StopClapping");
+            anim.SetBool("IsClapping",false);
             isSuccesse = false;
         }
     }

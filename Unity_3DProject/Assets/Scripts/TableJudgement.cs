@@ -7,8 +7,9 @@ public class TableJudgement : MonoBehaviour
 {
     public UnityEvent OnSuccess;
 
+    private List<NPC> NPCs = new List<NPC>();
+    private bool isSuccess = false;
     private float startTime = 0;
-    private bool isSuccesse = false;
 
 
     private void OnTriggerEnter(Collider other)
@@ -37,12 +38,30 @@ public class TableJudgement : MonoBehaviour
 
     private void Judgement()
     {
-        if (Time.time - startTime > 2 && !isSuccesse)
+        if (Time.time - startTime > 2 &&!isSuccess)
         {
             OnSuccess?.Invoke();
-            isSuccesse = true;
+            isSuccess = true;
         }
     }
 
-   
+    public void NPCseat(NPC npc)
+    {
+        NPCs.Add(npc);
+    }
+
+    public void NPCstand(NPC npc)
+    {
+        NPCs.Remove(npc);
+    }
+
+    public void NPCclap()
+    {
+        if (NPCs.Count == 0)
+            return;
+        foreach (NPC npc in NPCs)
+        {
+            npc.OnSuccess();
+        }
+    }
 }
