@@ -8,7 +8,7 @@ public class TableJudgement : MonoBehaviour
     public UnityEvent OnSuccess;
 
     private List<NPC> NPCs = new List<NPC>();
-    private List<FoodChecker> foods = new List<FoodChecker>();
+    private List<Food> foods = new List<Food>();
    
 
 
@@ -16,8 +16,8 @@ public class TableJudgement : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Food"))
         {
-            foods.Add(other.GetComponent<FoodChecker>());
-            other.GetComponent<FoodChecker>().startTime = Time.time;
+            foods.Add(other.GetComponent<Food>());
+            other.GetComponent<Food>().startTime = Time.time;
         }
     }
 
@@ -33,14 +33,14 @@ public class TableJudgement : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Food"))
         {
-            foods.Remove(other.GetComponent<FoodChecker>());
-            other.GetComponent<FoodChecker>().startTime = 0;
+            foods.Remove(other.GetComponent<Food>());
+            other.GetComponent<Food>().startTime = 0;
         }
     }
 
     private void Judgement()
     {
-        foreach(FoodChecker food in foods)
+        foreach(Food food in foods)
         {
             if (Time.time - food.startTime > 2 && !food.isSuccess)
             {
