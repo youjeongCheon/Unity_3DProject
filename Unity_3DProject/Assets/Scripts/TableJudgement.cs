@@ -8,15 +8,16 @@ public class TableJudgement : MonoBehaviour
     public UnityEvent OnSuccess;
 
     private List<NPC> NPCs = new List<NPC>();
-    private bool isSuccess = false;
-    private float startTime = 0;
+    private List<FoodChecker> foods = new List<FoodChecker>();
+   
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Food"))
         {
-            startTime = Time.time;
+            foods.Add(other.GetComponent<FoodChecker>());
+            other.GetComponent<FoodChecker>().startTime = Time.time;
         }
     }
 
@@ -32,17 +33,22 @@ public class TableJudgement : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Food"))
         {
-            startTime = 0;
+            foods.Remove(other.GetComponent<FoodChecker>());
+            other.GetComponent<FoodChecker>().startTime = 0;
         }
     }
 
     private void Judgement()
     {
-        if (Time.time - startTime > 2 &&!isSuccess)
+        foreach(FoodChecker food in foods)
         {
-            OnSuccess?.Invoke();
-            isSuccess = true;
+            if (Time.time - food.startTime > 2 && !food.isSuccess)
+            {
+                OnSuccess?.Invoke();
+                food.isSuccess = true;
+            }
         }
+        
     }
 
     public void NPCseat(NPC npc)

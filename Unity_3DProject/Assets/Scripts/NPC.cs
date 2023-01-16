@@ -12,17 +12,16 @@ public class NPC : MonoBehaviour
     private Rigidbody rigid;
     private Transform goal;
     private Seat seat;
+    private EmoticonChanger emoticon;
     private int curWayIndex = 0;
     private int GFXcount = 10;
-
-    private Coroutine clapRoutine;
-    private bool isSuccesse=false;
 
     private void Awake()
     {
         SetGFX();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
+        emoticon = GetComponentInChildren<EmoticonChanger>();
         rigid = GetComponent<Rigidbody>();
         goal = NavMeshManager.Instance.GetGoalPoint();
         anim.SetBool("isWalking", true);
@@ -78,18 +77,14 @@ public class NPC : MonoBehaviour
 
     public void OnSuccess()
     {
-        isSuccesse = true;
         anim.SetBool("IsClapping",true);
-        clapRoutine = StartCoroutine(ClapRoutine());
+        emoticon.Onsuccess();
+        StartCoroutine(ClapRoutine());
     }
 
     private IEnumerator ClapRoutine()
     {
-        while (isSuccesse)
-        {
-            yield return new WaitForSeconds(3);
-            anim.SetBool("IsClapping",false);
-            isSuccesse = false;
-        }
+        yield return new WaitForSeconds(3);
+        anim.SetBool("IsClapping", false);
     }
 }
