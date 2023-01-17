@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
 public class NPC : MonoBehaviour
 {
+    public UnityEvent OnOrdered;
+
     private NavMeshAgent agent;
     private Animator anim;
     private Rigidbody rigid;
     private Transform goal;
     private Seat seat;
+    public Order order { private set;  get;  }
     private EmoticonChanger emoticon;
     private int curWayIndex = 0;
     private int GFXcount = 10;
@@ -23,6 +27,7 @@ public class NPC : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         emoticon = GetComponentInChildren<EmoticonChanger>();
         rigid = GetComponent<Rigidbody>();
+        order = GetComponentInChildren<Order>();
         goal = NavMeshManager.Instance.GetGoalPoint();
         anim.SetBool("isWalking", true);
     }
@@ -33,7 +38,9 @@ public class NPC : MonoBehaviour
         {
             if(curWayIndex>= NavMeshManager.Instance.wayPoints.Count-1)
             {
-                // Goal Àü Point¿¡ µµÂø
+                // Goal Àü PosPoint¿¡ µµÂø
+                OnOrdered?.Invoke();
+                
                 agent.destination = goal.position;
             }
             else
@@ -43,6 +50,7 @@ public class NPC : MonoBehaviour
         }
         if(other.gameObject==goal.gameObject)
         {
+            Debug.Log("goal");
             OnArriveEndPoint();
         }
     }
@@ -78,8 +86,15 @@ public class NPC : MonoBehaviour
     public void OnSuccess()
     {
         anim.SetBool("IsClapping",true);
-        emoticon.Onsuccess();
+        emoticon.OnSuccess();
+        order.OnSuccess();
         StartCoroutine(ClapRoutine());
+    }
+
+    public void OnFailed()
+    {
+        emoticon.OnFailed();
+        order.OnFailed();
     }
 
     private IEnumerator ClapRoutine()

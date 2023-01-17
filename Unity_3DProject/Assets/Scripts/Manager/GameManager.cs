@@ -8,4 +8,6 @@ public class GameManager : SingleTon<GameManager>
     public Transform Player;
     [SerializeField]
     public Transform MainCam;
+
+    public float money = 3000;
 }

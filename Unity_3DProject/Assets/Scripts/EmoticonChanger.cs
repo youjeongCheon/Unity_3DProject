@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum EmotionState { Smile, Angry, Sad, None }
+[RequireComponent(typeof(SpriteRenderer))]
 public class EmoticonChanger : MonoBehaviour
 {
-    private SpriteRenderer renderer;
+    private SpriteRenderer spriteRender;
 
     [SerializeField]
     private Sprite smileEmotion;
@@ -16,22 +17,27 @@ public class EmoticonChanger : MonoBehaviour
     [SerializeField]
     private float duration;
     [SerializeField]
-    private float appearTime;
+    private float appearTime=0.5f;
 
     private float time = 0;
 
     private void Awake()
     {
-        renderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        spriteRender = GetComponent<SpriteRenderer>();
         gameObject.SetActive(false);
     }
     private void FixedUpdate()
     {
         transform.LookAt(GameManager.Instance.MainCam);
     }
-    public void Onsuccess()
+    public void OnSuccess()
     {
         ChangeEmotion(EmotionState.Smile);
+        Appear();
+    }
+    public void OnFailed()
+    {
+        ChangeEmotion(EmotionState.Sad);
         Appear();
     }
 
@@ -40,19 +46,19 @@ public class EmoticonChanger : MonoBehaviour
         switch(emotionState)
         {
             case EmotionState.Smile:
-                renderer.sprite = smileEmotion;
+                spriteRender.sprite = smileEmotion;
                 break;
 
             case EmotionState.Angry:
-                renderer.sprite = angryEmotion;
+                spriteRender.sprite = angryEmotion;
                 break;
 
             case EmotionState.Sad:
-                renderer.sprite = sadEmotion;
+                spriteRender.sprite = sadEmotion;
                 break;
 
             default:
-                renderer.sprite = null;
+                spriteRender.sprite = null;
                 break;
         }
     }
