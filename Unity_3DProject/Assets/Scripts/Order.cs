@@ -12,7 +12,7 @@ public class Order : MonoBehaviour
     [SerializeField]
     private float appearTime = 0.5f;
 
-    public FoodData data { private set; get; }
+    public FoodData data { get; private set; }
     
     private int rand;
     private float time = 0;

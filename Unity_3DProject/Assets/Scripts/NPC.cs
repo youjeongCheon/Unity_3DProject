@@ -15,7 +15,7 @@ public class NPC : MonoBehaviour
     private Rigidbody rigid;
     private Transform goal;
     private Seat seat;
-    public Order order { private set;  get;  }
+    public Order order;
     private EmoticonChanger emoticon;
     private int curWayIndex = 0;
     private int GFXcount = 10;
@@ -50,7 +50,6 @@ public class NPC : MonoBehaviour
         }
         if(other.gameObject==goal.gameObject)
         {
-            Debug.Log("goal");
             OnArriveEndPoint();
         }
     }

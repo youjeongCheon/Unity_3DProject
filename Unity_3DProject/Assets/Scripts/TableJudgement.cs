@@ -10,17 +10,17 @@ public class TableJudgement : MonoBehaviour
 
     private List<NPC> NPCs = new List<NPC>();
 
-    public List<Order> Orders  { private set; get; }
+    public List<FoodData> FoodOrders  { private set; get; }
 
     private void Awake()
     {
-        List<Order> Orders = new List<Order>();
+        FoodOrders = new List<FoodData>();
     }
 
     public void NPCseat(NPC npc)
     {
         NPCs.Add(npc);
-        Orders.Add(npc.order);
+        FoodOrders.Add(npc.order.data);
     }
 
     public void NPCstand(NPC npc)
@@ -44,7 +44,7 @@ public class TableJudgement : MonoBehaviour
             return;
         foreach (NPC npc in NPCs)
         {
-            npc.OnSuccess();
+            npc.OnFailed();
         }
     }
 }

@@ -40,15 +40,15 @@ public class Food : MonoBehaviour
     private IEnumerator FoodJudgement()
     {
         yield return new WaitForSeconds(2.0f);
-        foreach(Order order in table.Orders)
+        foreach(FoodData foodOrder in table.FoodOrders)
         {
-            if(isStay&& string.Equals( order.data.FoodName, foodname))
+            if(isStay&& string.Equals(foodOrder.FoodName, foodname))
             {
                 table.OnSuccess?.Invoke();
-                GameManager.Instance.money += order.data.Cost;
+                GameManager.Instance.money += foodOrder.Cost;
                 Debug.Log(GameManager.Instance.money);
             }
-            else if(isStay&&!string.Equals(order.data.FoodName, foodname))
+            else if(isStay&&!string.Equals(foodOrder.FoodName, foodname))
             {
                 Debug.Log("½ÇÆÐ");
                 table.OnFailded?.Invoke();
