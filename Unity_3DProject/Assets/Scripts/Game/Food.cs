@@ -12,6 +12,16 @@ public class Food : MonoBehaviour
     private Coroutine spawnCorutine;
     private int num = 0;
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Floor"))
+        {
+            GameManager.Instance.money -= 1000;
+            UIManager.Instance.SetMoney(GameManager.Instance.money);
+            StartCoroutine(DestroyFood());
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Table"))
