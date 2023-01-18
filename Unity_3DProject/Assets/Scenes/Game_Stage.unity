@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589167, b: 0.29782546, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276841, g: 0.21589246, b: 0.29782617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -521,8 +521,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '05 : 00'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a114849ffe19c444da37e1c2be33bf19, type: 2}
-  m_sharedMaterial: {fileID: -5364487854322206499, guid: a114849ffe19c444da37e1c2be33bf19, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -898,8 +898,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a114849ffe19c444da37e1c2be33bf19, type: 2}
-  m_sharedMaterial: {fileID: -5364487854322206499, guid: a114849ffe19c444da37e1c2be33bf19, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3609,7 +3609,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556892724}
-  m_LocalRotation: {x: 0.20376882, y: 0.00013605772, z: -0.000028318469, w: 0.97901905}
+  m_LocalRotation: {x: 0.2037688, y: 0.0001360251, z: -0.000028311682, w: 0.97901905}
   m_LocalPosition: {x: -36.051994, y: -1.31004, z: 9.592062}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
