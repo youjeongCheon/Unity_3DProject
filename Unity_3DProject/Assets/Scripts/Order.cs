@@ -6,20 +6,23 @@ using UnityEngine;
 public class Order : MonoBehaviour
 {
     private SpriteRenderer spriteRender;
+    private Coroutine apperCoroutine;
 
     [SerializeField]
     private List<FoodData> Orders;
     [SerializeField]
     private float appearTime = 0.5f;
-
-    public FoodData data { get; private set; }
     
+    public FoodData data { get; private set; }
+    public NPC npc { get; private set; }
+
     private int rand;
     private float time = 0;
 
     private void Awake()
     {
         spriteRender = GetComponent<SpriteRenderer>();
+        npc = GetComponentInParent<NPC>();
         RandomOrder();
         gameObject.SetActive(false);
     }
@@ -46,7 +49,7 @@ public class Order : MonoBehaviour
     }
     public void OnFailed()
     {
-        Disappear();
+        transform.localScale = Vector3.zero;
         StartCoroutine(ReappearEffect());
 
     }
@@ -54,7 +57,7 @@ public class Order : MonoBehaviour
     {
         gameObject.SetActive(true);
         transform.localScale = Vector3.zero;
-        StartCoroutine(AppearEffect());
+        apperCoroutine=StartCoroutine(AppearEffect());
     }
 
     private void Disappear()
@@ -75,7 +78,8 @@ public class Order : MonoBehaviour
             }
             else
             {
-                StopCoroutine(AppearEffect());
+                StopCoroutine(apperCoroutine);
+                transform.localScale = Vector3.one;
             }
         }
 
@@ -84,8 +88,8 @@ public class Order : MonoBehaviour
     private IEnumerator ReappearEffect()
     {
         yield return new WaitForSeconds(appearTime+3f);
+        time = 0;
         Appear();
-
     }
 
 

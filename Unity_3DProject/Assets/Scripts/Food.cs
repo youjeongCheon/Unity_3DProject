@@ -10,6 +10,7 @@ public class Food : MonoBehaviour
    
     private TableJudgement table;
     private Coroutine spawnCorutine;
+    private int num = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,20 +41,33 @@ public class Food : MonoBehaviour
     private IEnumerator FoodJudgement()
     {
         yield return new WaitForSeconds(2.0f);
-        foreach(FoodData foodOrder in table.FoodOrders)
+        int orderCount = table.FoodOrders.Count;
+        foreach(Order order in table.Orders)
         {
-            if(isStay&& string.Equals(foodOrder.FoodName, foodname))
+            if(isStay && string.Equals(order.data.FoodName, foodname))
             {
-                table.OnSuccess?.Invoke();
-                GameManager.Instance.money += foodOrder.Cost;
+                order.npc.OnSuccess();
+                GameManager.Instance.money += order.data.Cost;
                 Debug.Log(GameManager.Instance.money);
+                StartCoroutine(DestroyFood());
+                break;
             }
-            else if(isStay&&!string.Equals(foodOrder.FoodName, foodname))
+            else if(isStay&&!string.Equals(order.data.FoodName, foodname))
             {
-                Debug.Log("½ÇÆÐ");
-                table.OnFailded?.Invoke();
+                num++;
             }
         }
+        if(orderCount>0&&num==orderCount)
+        {
+            table.OnFailded?.Invoke();
+            StartCoroutine(DestroyFood());
+        }
 
+    }
+
+    private IEnumerator DestroyFood()
+    {
+        yield return new WaitForSeconds(2.0f);
+        Destroy(gameObject);
     }
 }
