@@ -47,8 +47,9 @@ public class Food : MonoBehaviour
             if(isStay && string.Equals(order.data.FoodName, foodname))
             {
                 order.npc.OnSuccess();
+                table.OrderComplete(order.npc);
                 GameManager.Instance.money += order.data.Cost;
-                Debug.Log(GameManager.Instance.money);
+                UIManager.Instance.SetMoney(GameManager.Instance.money);
                 StartCoroutine(DestroyFood());
                 break;
             }

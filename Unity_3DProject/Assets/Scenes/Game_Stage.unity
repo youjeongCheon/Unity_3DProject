@@ -107,7 +107,7 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.3
-    agentHeight: 2
+    agentHeight: 0.5
     agentSlope: 45
     agentClimb: 0.5
     ledgeDropHeight: 0
@@ -316,7 +316,7 @@ GameObject:
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &291162948
@@ -376,7 +376,19 @@ MonoBehaviour:
         m_CallState: 2
   OnFailded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 291162950}
+        m_TargetAssemblyTypeName: TableJudgement, Assembly-CSharp
+        m_MethodName: NPCsad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &291734221
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,8 +596,8 @@ GameObject:
   m_Name: SI_Prop_ChairTables_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 40
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &440133028
 Transform:
@@ -699,8 +711,8 @@ GameObject:
   m_Name: SI_Prop_ChairTables_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 40
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &511865216
 Transform:
@@ -941,8 +953,8 @@ GameObject:
   m_Name: SI_Prop_ChairTables_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 40
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &644464408
 Transform:
@@ -1086,7 +1098,7 @@ GameObject:
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &700096511
@@ -1146,7 +1158,19 @@ MonoBehaviour:
         m_CallState: 2
   OnFailded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 700096513}
+        m_TargetAssemblyTypeName: TableJudgement, Assembly-CSharp
+        m_MethodName: NPCsad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &732776119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,7 +1291,7 @@ GameObject:
   m_Name: SeatF
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &751254979
@@ -3112,7 +3136,19 @@ MonoBehaviour:
         m_CallState: 2
   OnFailded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1506128194}
+        m_TargetAssemblyTypeName: TableJudgement, Assembly-CSharp
+        m_MethodName: NPCsad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1517212803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7973136786310375115, guid: 31a2480cd56faa3449c83060cd58e80a, type: 3}
@@ -3138,7 +3174,7 @@ GameObject:
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1532072268
@@ -3198,7 +3234,19 @@ MonoBehaviour:
         m_CallState: 2
   OnFailded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1532072270}
+        m_TargetAssemblyTypeName: TableJudgement, Assembly-CSharp
+        m_MethodName: NPCsad
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1556892724
 GameObject:
   m_ObjectHideFlags: 0
@@ -3562,7 +3610,7 @@ GameObject:
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1697855699
@@ -3741,7 +3789,7 @@ GameObject:
   m_Name: SI_Prop_ChairTables_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1756869763
@@ -5821,7 +5869,7 @@ GameObject:
   m_Name: SI_Env_Floor_64
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!33 &1435928487661065521

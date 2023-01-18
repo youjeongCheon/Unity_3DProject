@@ -9,5 +9,5 @@ public class GameManager : SingleTon<GameManager>
     [SerializeField]
     public Transform MainCam;
 
-    public float money = 3000;
+    public float money = 0;
 }

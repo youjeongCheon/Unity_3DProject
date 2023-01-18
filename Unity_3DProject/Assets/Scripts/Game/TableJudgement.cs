@@ -29,6 +29,11 @@ public class TableJudgement : MonoBehaviour
     public void NPCstand(NPC npc)
     {
         NPCs.Remove(npc);
+        
+    }
+
+    public void OrderComplete(NPC npc)
+    {
         Orders.Remove(npc.order);
         FoodOrders.Remove(npc.order.data);
     }
