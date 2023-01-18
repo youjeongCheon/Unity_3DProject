@@ -29,10 +29,10 @@ public class Timer : MonoBehaviour
     private void TimeSetting()
     {
         playTime = Time.time - startTime;
-        timer = minTimer * 60 + secTimer;
+        timer = minTimer * 60 + secTimer+1;
         timer -= playTime;
         min = Mathf.Floor(timer / 60);
-        sec = Mathf.Floor(timer % 60)+1;
+        sec = Mathf.Floor(timer % 60);
 
         UIManager.Instance.SetTime(min, sec);
     }
