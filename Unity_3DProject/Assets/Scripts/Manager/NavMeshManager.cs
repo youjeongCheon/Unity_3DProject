@@ -11,7 +11,7 @@ public class NavMeshManager : SingleTon<NavMeshManager>
     [SerializeField]
     private float spawnDelay;
     private Coroutine spawnRoutine;
-    private int NPCcount = 0;
+    public int NPCcount = 0;
    
     [Header("Way")]
     [SerializeField]

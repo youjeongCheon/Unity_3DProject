@@ -47,6 +47,8 @@ public class NPC : MonoBehaviour
             else if(eatCompite&&curWayIndex==0)
             {
                 Destroy(gameObject);
+                NavMeshManager.Instance.SetGoalPoints(goal);
+                NavMeshManager.Instance.NPCcount--;
             }
             else
             {
