@@ -14,13 +14,13 @@ public class HingeJoint : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(1))
         {
             
             rigid.angularVelocity = transform.forward;
            
         }
-        else if(Input.GetMouseButton(1))
+        else if(Input.GetMouseButton(0))
         {
             rigid.angularVelocity = -transform.forward;
         }
