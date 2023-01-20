@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EPOOutline;
 
-public enum CustomState { Selet, Move, Rotate, Scale, Create }
+public enum CustomState { Selet, Move, Rotate, Scale, Create, Paint }
 
 public class CustomManager : SingleTon<CustomManager>
 {

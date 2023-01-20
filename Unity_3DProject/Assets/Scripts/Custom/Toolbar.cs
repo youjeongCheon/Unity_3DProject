@@ -1,9 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
-
 
 public class Toolbar : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject createUI;
+    [SerializeField]
+    private GameObject paintUI;
+
     public void Selet()
     {
         CustomManager.Instance.customState= CustomState.Selet;
@@ -40,8 +45,31 @@ public class Toolbar : MonoBehaviour
 
     public void Create()
     {
+        CustomManager.Instance.customState = CustomState.Create;
+        CreateMode();
         MoveDeactive();
         ScaleDeactive();
+    }
+
+    public void Paint()
+    {
+        CustomManager.Instance.customState = CustomState.Paint;
+        PaintMode();
+        MoveDeactive();
+        ScaleDeactive();
+
+    }
+
+    private void PaintMode()
+    {
+        createUI.SetActive(false);
+        paintUI.SetActive(true);
+    }
+
+    private void CreateMode()
+    {
+        createUI.SetActive(true);
+        paintUI.SetActive(false);
     }
 
     private void MoveActive()
