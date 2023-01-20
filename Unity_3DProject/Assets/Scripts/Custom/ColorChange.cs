@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class ColorChange : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private Material color;
 
-    // Update is called once per frame
-    void Update()
+    public void paintClick()
     {
+        CustomManager.Instance.selectedMaterial = color;
         
     }
 }

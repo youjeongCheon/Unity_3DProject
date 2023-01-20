@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 5739881046530052354}
   - component: {fileID: 7833302242487171800}
   - component: {fileID: 3522965673498680179}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

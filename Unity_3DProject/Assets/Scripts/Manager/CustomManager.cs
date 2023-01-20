@@ -13,6 +13,8 @@ public class CustomManager : SingleTon<CustomManager>
     public GameObject curSelected;
     public GameObject preSelected;
 
+    public Material selectedMaterial;
+
     public CustomState customState;
 
 

@@ -44,7 +44,7 @@ public class RupeeJoint : MonoBehaviour
         Limit();
         transform.localScale = curScale;
         transform.position = fixedPosition + transform.lossyScale.z * 0.5f * transform.forward;
-        Hand.position = transform.position + transform.lossyScale.z * 0.5f * transform.forward + 0.075f* transform.forward; 
+        Hand.position = transform.position + transform.lossyScale.z * 0.5f * transform.forward + 0.15f* transform.forward; 
     }
 
     private void Limit()
