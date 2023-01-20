@@ -57,6 +57,7 @@ public class Food : MonoBehaviour
             if(isStay && string.Equals(order.data.FoodName, foodname))
             {
                 order.npc.OnSuccess();
+                table.OnSuccess?.Invoke();
                 table.OrderComplete(order.npc);
                 GameManager.Instance.money += order.data.Cost;
                 UIManager.Instance.SetMoney(GameManager.Instance.money);

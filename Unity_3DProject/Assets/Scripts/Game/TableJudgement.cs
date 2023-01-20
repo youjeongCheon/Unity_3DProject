@@ -13,6 +13,9 @@ public class TableJudgement : MonoBehaviour
     public List<FoodData> FoodOrders  { private set; get; }
     public List<Order> Orders { private set; get; }
 
+    [SerializeField]
+    private ParticleSystem comffeti;
+
     private void Awake()
     {
         FoodOrders = new List<FoodData>();
@@ -38,14 +41,9 @@ public class TableJudgement : MonoBehaviour
         FoodOrders.Remove(npc.order.data);
     }
 
-    public void NPCclap()
+    public void ConffetiPlay()
     {
-        if (NPCs.Count == 0)
-            return;
-        foreach (NPC npc in NPCs)
-        {
-            npc.OnSuccess();
-        }
+        comffeti.Play();
     }
 
     public void NPCsad()
