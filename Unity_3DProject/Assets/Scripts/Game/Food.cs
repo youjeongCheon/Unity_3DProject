@@ -7,15 +7,16 @@ public class Food : MonoBehaviour
     public string foodname;
    
     private bool isStay = false;
-   
+    private bool isGround = false;
     private TableJudgement table;
     private Coroutine spawnCorutine;
     private int num = 0;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Floor"))
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Floor")&&!isGround)
         {
+            isGround = true;
             GameManager.Instance.money -= 1000;
             UIManager.Instance.SetMoney(GameManager.Instance.money);
             StartCoroutine(DestroyFood());
