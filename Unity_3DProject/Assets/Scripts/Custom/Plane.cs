@@ -5,6 +5,7 @@ using UnityEngine;
 public class Plane : MonoBehaviour
 {
     private Renderer render;
+    private Renderer objectRender;
 
     [SerializeField]
     private Color normal;
@@ -14,6 +15,7 @@ public class Plane : MonoBehaviour
     private void Awake()
     {
         render = GetComponent<Renderer>();
+        objectRender = transform.parent.GetComponent<Renderer>();
     }
 
     private void OnMouseOver()
@@ -61,6 +63,9 @@ public class Plane : MonoBehaviour
                     
                     CustomManager.Instance.customState = CustomState.Selet;
                 }
+                break;
+            case CustomState.Paint:
+                objectRender.material = CustomManager.Instance.selectedMaterial;
                 break;
         }
     }

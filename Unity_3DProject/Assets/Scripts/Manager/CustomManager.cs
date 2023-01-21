@@ -17,8 +17,6 @@ public class CustomManager : SingleTon<CustomManager>
 
     public CustomState customState;
 
-
-
     public void ChangeSeleted(GameObject gameObject)
     {
         if (curSelected != gameObject)
@@ -52,6 +50,12 @@ public class CustomManager : SingleTon<CustomManager>
         ChangeSeleted(gameObject);
         AddListobject(gameObject);
     }
-   
 
+    private void FixedUpdate()
+    {
+        if(Input.GetMouseButton(0))
+        {
+            
+        }
+    }
 }

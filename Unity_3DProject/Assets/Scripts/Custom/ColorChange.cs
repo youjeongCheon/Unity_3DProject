@@ -4,12 +4,28 @@ using UnityEngine;
 
 public class ColorChange : MonoBehaviour
 {
-    [SerializeField]
-    private Material color;
+    
+    private Ray ray;
+    private RaycastHit hit;
+    private Renderer objectRenderer;
 
-    public void paintClick()
+    private void FixedUpdate()
     {
-        CustomManager.Instance.selectedMaterial = color;
+        if(CustomManager.Instance.customState==CustomState.Paint)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                int layerMask = LayerMask.GetMask("Object");
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
+                {
+                    objectRenderer = hit.collider.gameObject.GetComponent<Renderer>();
+                    objectRenderer.material = CustomManager.Instance.selectedMaterial;
+                }
+            }
+        }
         
     }
+
+    
 }
