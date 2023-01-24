@@ -14,21 +14,9 @@ public class Custom : MonoBehaviour
 
     private void OnMouseDown()
     {
-        switch (CustomManager.Instance.customState)
+        if(CustomManager.Instance.customState== CustomState.Selet)
         {
-            case CustomState.Selet:
-                CustomManager.Instance.ChangeSeleted(gameObject.transform.root.gameObject);
-                break;
-            case CustomState.Move:
-
-                break;
-            case CustomState.Rotate:
-
-                break;
-            case CustomState.Scale:
-
-                break;
-
+            CustomManager.Instance.ChangeSeleted(gameObject.transform.root.gameObject);
         }
     }
 }

@@ -6,7 +6,7 @@ using Cinemachine;
 [RequireComponent(typeof(CinemachineVirtualCamera))]
 public class CustomCamereController : MonoBehaviour
 {
-    private CinemachineVirtualCamera camera;
+    private CinemachineVirtualCamera CM;
 
     [SerializeField]
     private Transform zeroTransform;
@@ -25,7 +25,7 @@ public class CustomCamereController : MonoBehaviour
 
     private void Awake()
     {
-        camera = GetComponent<CinemachineVirtualCamera>();
+        CM = GetComponent<CinemachineVirtualCamera>();
     }
 
     private void Update()
@@ -49,7 +49,7 @@ public class CustomCamereController : MonoBehaviour
         {
             target = zeroTransform;
         }
-        camera.LookAt = target.transform;
+        CM.LookAt = target.transform;
     }
 
     private void Move()
