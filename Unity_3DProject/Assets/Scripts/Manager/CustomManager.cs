@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EPOOutline;
+using UnityEngine.SceneManagement;
 
 public enum CustomState { Selet, Move, Rotate, Scale, Create, Paint }
 
 public class CustomManager : SingleTon<CustomManager>
 {
     private List<GameObject> listobject = new List<GameObject>();
+
+    [SerializeField]
+    public GameObject robot;
 
     public GameObject createObject;
     public GameObject curSelected;
@@ -51,11 +55,9 @@ public class CustomManager : SingleTon<CustomManager>
         AddListobject(gameObject);
     }
 
-    private void FixedUpdate()
+    public void LoadGameScene()
     {
-        if(Input.GetMouseButton(0))
-        {
-            
-        }
+        DontDestroyOnLoad(robot);
+        SceneManager.LoadScene(1);
     }
 }

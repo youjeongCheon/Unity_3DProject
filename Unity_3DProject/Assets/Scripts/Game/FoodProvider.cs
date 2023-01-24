@@ -18,7 +18,7 @@ public class FoodProvider : MonoBehaviour
     [SerializeField]
     private LayerMask layer;
 
-    private MeshRenderer renderer;
+    private MeshRenderer render;
     private Coroutine spawnCorutine;
     private bool isSpawn = false;
     
@@ -27,7 +27,7 @@ public class FoodProvider : MonoBehaviour
 
     private void Awake()
     {
-        renderer = GetComponent<MeshRenderer>();
+        render = GetComponent<MeshRenderer>();
     }
 
     private void FixedUpdate()
@@ -35,13 +35,13 @@ public class FoodProvider : MonoBehaviour
         Collider[] colliders = Physics.OverlapBox(transform.position, point, Quaternion.identity, layer);
         if (!isSpawn&&colliders.Length>0)
         {
-            renderer.material = red;
+            render.material = red;
             spawnCorutine = StartCoroutine(FoodSpawn());
             isSpawn = true;
         }
         else if(isSpawn&&colliders.Length==0)
         {
-            renderer.material = green;
+            render.material = green;
             StopCoroutine(spawnCorutine);
             isSpawn = false;
         }

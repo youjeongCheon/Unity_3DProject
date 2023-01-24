@@ -34,7 +34,9 @@ public class Food : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject == table.gameObject)
+        if (table == null)
+            return;
+        else if(other.gameObject == table.gameObject)
         {
             isStay = true;
         } 
@@ -42,7 +44,9 @@ public class Food : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == table.gameObject)
+        if (table == null)
+            return;
+        else if(other.gameObject == table.gameObject)
         {
             isStay = false;
             StopCoroutine(spawnCorutine);

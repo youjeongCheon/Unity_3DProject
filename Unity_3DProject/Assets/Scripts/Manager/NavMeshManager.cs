@@ -23,14 +23,11 @@ public class NavMeshManager : SingleTon<NavMeshManager>
     private Transform goal;
     public List<Transform> goalPoints { get; private set; }
 
-    public override void Awake()
+   
+    private void Start()
     {
         GetWayPoints();
         GetGoalPoints();
-    }
-
-    private void Start()
-    {
         spawnRoutine = StartCoroutine(SpawnRoutine());
     }
 
