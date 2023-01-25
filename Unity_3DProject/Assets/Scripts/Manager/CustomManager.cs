@@ -8,10 +8,10 @@ public enum CustomState { Selet, Move, Rotate, Scale, Create, Paint }
 
 public class CustomManager : SingleTon<CustomManager>
 {
-    private List<GameObject> listobject = new List<GameObject>();
+    public List<GameObject> listObject = new List<GameObject>();
 
     [SerializeField]
-    public GameObject robot;
+    private GameObject robotPrefab;
 
     public GameObject createObject;
     public GameObject curSelected;
@@ -39,25 +39,43 @@ public class CustomManager : SingleTon<CustomManager>
 
     public void AddListobject(GameObject gameObject)
     {
-        listobject.Add(gameObject);
+        listObject.Add(gameObject);
     }
 
     public void DeleteListobject(GameObject gameObject)
     {
-        listobject.Remove(gameObject);
+        listObject.Remove(gameObject);
         Destroy(gameObject);
     }
 
     public void CreateObject()
     {
         GameObject gameObject = Instantiate(createObject);
+        gameObject.name = createObject.name;
         ChangeSeleted(gameObject);
         AddListobject(gameObject);
     }
 
     public void LoadGameScene()
     {
+
+        GameObject robot = Instantiate(robotPrefab);
+        robot.name = robotPrefab.name;
+        foreach (GameObject gameObject in listObject)
+        {
+            DontDestroyOnLoad(gameObject);
+            GameObject copyobject = Instantiate(gameObject, gameObject.transform.position, gameObject.transform.rotation);
+            copyobject.name = gameObject.name;
+            if (copyobject.name == "Wheel_Joint_Right")
+                copyobject.transform.parent = robot.transform.GetChild(0);
+            else if (copyobject.name == "Wheel_Joint_Left")
+                copyobject.transform.parent = robot.transform.GetChild(1);
+            else
+                copyobject.transform.parent = robot.transform;
+        }
+
         DontDestroyOnLoad(robot);
+        DontDestroyOnLoad(gameObject);
         SceneManager.LoadScene(1);
     }
 }

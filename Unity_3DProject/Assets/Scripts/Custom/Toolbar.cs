@@ -39,8 +39,7 @@ public class Toolbar : MonoBehaviour
 
     public void Delete()
     {
-        Destroy(CustomManager.Instance.curSelected);
-
+        CustomManager.Instance.DeleteListobject(CustomManager.Instance.curSelected);
     }
 
     public void Create()
