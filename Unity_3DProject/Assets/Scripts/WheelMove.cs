@@ -6,6 +6,8 @@ public class WheelMove : MonoBehaviour
 {
     private Rigidbody rigid;
     private Transform playerTransform;
+    private Wheel[] wheels;
+    private bool hasWheels = false;
 
     [SerializeField]
     private float moveSpeed = 10;
@@ -14,16 +16,27 @@ public class WheelMove : MonoBehaviour
 
     private void Awake()
     {
+        wheels = GetComponentsInChildren<Wheel>();
+        CheckWheel();
         playerTransform = transform.root;
         rigid = playerTransform.GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
     {
-        Move();
-        Rotate();
+        if(hasWheels)
+        {
+            Move();
+            Rotate();
+        }
+        
     }
 
+    private void CheckWheel()
+    {
+        if (wheels.Length != 0)
+            hasWheels = true;
+    }
 
     private void Move()
     {
