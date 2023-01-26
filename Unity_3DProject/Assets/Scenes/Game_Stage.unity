@@ -847,6 +847,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestGameRobot 1
       objectReference: {fileID: 0}
+    - target: {fileID: 613733941984189405, guid: 9a638a6eb1fc8284091948762e793427, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a638a6eb1fc8284091948762e793427, type: 3}
 --- !u!1 &440133027
@@ -2094,6 +2098,7 @@ GameObject:
   - component: {fileID: 877433220}
   - component: {fileID: 877433221}
   - component: {fileID: 877433222}
+  - component: {fileID: 877433223}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -2185,6 +2190,18 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
+--- !u!114 &877433223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877433219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa2f56825a02ac4ba50af442ee291c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &936381085
 GameObject:
   m_ObjectHideFlags: 0

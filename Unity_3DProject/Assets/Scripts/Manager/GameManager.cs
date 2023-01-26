@@ -29,6 +29,8 @@ public class GameManager : SingleTon<GameManager>
         allChildren = robot.GetComponentsInChildren<Transform>();
         foreach(Transform child in allChildren)
         {
+            if (child.GetComponent<PartJoint>() != null)
+                child.GetComponent<PartJoint>().SetPart();
             child.gameObject.layer = LayerMask.NameToLayer("Player");
         }
     }

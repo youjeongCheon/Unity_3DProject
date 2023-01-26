@@ -6,20 +6,20 @@ public class WheelMove : MonoBehaviour
 {
     private Rigidbody rigid;
     private Transform playerTransform;
-    private Wheel[] wheels;
+    private WheelPartJoint[] wheels;
     private bool hasWheels = false;
 
     [SerializeField]
-    private float moveSpeed = 10;
+    private float moveSpeed = 5;
     [SerializeField]
-    private float rotateSpeed = 5;
+    private float rotateSpeed = 1;
 
-    private void Awake()
+    private void Start()
     {
-        wheels = GetComponentsInChildren<Wheel>();
-        CheckWheel();
         playerTransform = transform.root;
+        wheels = GetComponentsInChildren<WheelPartJoint>();
         rigid = playerTransform.GetComponent<Rigidbody>();
+        CheckWheel();
     }
 
     private void FixedUpdate()
@@ -35,7 +35,10 @@ public class WheelMove : MonoBehaviour
     private void CheckWheel()
     {
         if (wheels.Length != 0)
+        {
             hasWheels = true;
+           
+        }
     }
 
     private void Move()
