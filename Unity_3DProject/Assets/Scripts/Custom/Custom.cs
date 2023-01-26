@@ -5,7 +5,8 @@ using UnityEngine;
 public class Custom : MonoBehaviour
 {
     public bool isCreated  { get; set; }
-    GameObject curSeleted;
+
+    public GameObject hand;
 
     private void Awake()
     {

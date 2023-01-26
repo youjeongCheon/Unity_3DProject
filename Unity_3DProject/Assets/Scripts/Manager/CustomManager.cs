@@ -58,24 +58,29 @@ public class CustomManager : SingleTon<CustomManager>
 
     public void LoadGameScene()
     {
+        DontDestroyOnLoad(gameObject);
+        SceneManager.LoadScene(1);
+    }
 
+    public void RobotIntoGame()
+    {
         GameObject robot = Instantiate(robotPrefab);
         robot.name = robotPrefab.name;
         foreach (GameObject gameObject in listObject)
         {
             DontDestroyOnLoad(gameObject);
+
             GameObject copyobject = Instantiate(gameObject, gameObject.transform.position, gameObject.transform.rotation);
             copyobject.name = gameObject.name;
-            if (copyobject.name == "Wheel_Joint_Right")
+            if (gameObject.GetComponentInChildren<Custom>().hand != null)
+                copyobject.transform.parent = gameObject.GetComponentInChildren<Custom>().hand.transform;
+            else if (copyobject.name == "Wheel_Joint_Right")
                 copyobject.transform.parent = robot.transform.GetChild(0);
             else if (copyobject.name == "Wheel_Joint_Left")
                 copyobject.transform.parent = robot.transform.GetChild(1);
             else
                 copyobject.transform.parent = robot.transform;
         }
-
         DontDestroyOnLoad(robot);
-        DontDestroyOnLoad(gameObject);
-        SceneManager.LoadScene(1);
     }
 }

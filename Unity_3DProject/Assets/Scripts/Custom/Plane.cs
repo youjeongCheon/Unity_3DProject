@@ -59,6 +59,12 @@ public class Plane : MonoBehaviour
                         curSelected.transform.position = createposition;
                         curSelected.transform.rotation = createRotation;
                         custom.isCreated = false;
+
+                        if(hit.transform.parent.name=="Hand")
+                        {
+                            Custom customHand = curSelected.GetComponentInChildren<Custom>();
+                            customHand.hand = transform.parent.gameObject;
+                        }
                     }
                     
                     CustomManager.Instance.customState = CustomState.Selet;
