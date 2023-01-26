@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 8323937010473229152}
   - component: {fileID: 6555409227530748526}
   - component: {fileID: 1809318176576454488}
+  - component: {fileID: 1674203901698203355}
   m_Layer: 7
   m_Name: HingeJoint
   m_TagString: Untagged
@@ -472,6 +473,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1674203901698203355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066296925445973434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84188db33348c41439270fca491c47ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOperate: 0
+  operateSpeed: 0
+  min: 0
+  max: 0
 --- !u!1001 &2029672163639102041
 PrefabInstance:
   m_ObjectHideFlags: 0
