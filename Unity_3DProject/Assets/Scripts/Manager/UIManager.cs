@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
 public class UIManager : SingleTon<UIManager>
 {
     [SerializeField]
@@ -10,8 +11,37 @@ public class UIManager : SingleTon<UIManager>
     [SerializeField]
     public TextMeshProUGUI timerUI;
 
+    [SerializeField]
+    private GameObject startUI;
+    [SerializeField]
+    private GameObject TimeOVerUI;
+
+    [SerializeField]
+    private TextMeshProUGUI MoneyUI;
+    [SerializeField]
+    private TextMeshProUGUI bestMoneyUI;
+
+
     private string strMin;
     private string strSec;
+
+    public void GameStart()
+    {
+        Time.timeScale = 1;
+        startUI.SetActive(false);
+    }
+    public void TimeOver()
+    {
+        Time.timeScale = 0;
+        TimeOVerUI.SetActive(true);
+    }
+
+    public void SetScoreTxt()
+    {
+        GameManager.Instance.SetScore();
+        MoneyUI.text = GameManager.Instance.money.ToString();
+        bestMoneyUI.text = GameManager.Instance.bestMoney.ToString();
+    }
 
     public void SetMoney(float money)
     {

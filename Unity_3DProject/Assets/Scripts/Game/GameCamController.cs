@@ -12,7 +12,7 @@ public class GameCamController : MonoBehaviour
     private void Start()
     {
         CM = GetComponent<CinemachineVirtualCamera>();
-        target = GameObject.Find("Robot").transform;
+        target = GameManager.Instance.targert.transform;
         CM.Follow = target;
         CM.LookAt = target;
     }

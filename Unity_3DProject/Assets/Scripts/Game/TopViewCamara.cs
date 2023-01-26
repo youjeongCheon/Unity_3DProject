@@ -13,6 +13,10 @@ public class TopViewCamara : MonoBehaviour
     [SerializeField]
     private float moveTime=0.2f;
 
+    private void Awake()
+    {
+        target = GameManager.Instance.targert.transform;
+    }
     private void FixedUpdate()
     {
         Follow();

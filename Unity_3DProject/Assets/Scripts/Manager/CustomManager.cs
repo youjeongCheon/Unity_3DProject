@@ -98,7 +98,16 @@ public class CustomManager : SingleTon<CustomManager>
         GameObject handCopy = Instantiate(handObject, handObject.transform.position, handObject.transform.rotation);
         handCopy.name = handObject.name;
         Custom custom = handCopy.GetComponentInChildren<Custom>();
-        while(custom.childHandList.Count>0)
+        Custom originCustom = handObject.GetComponentInChildren<Custom>();
+        
+        foreach (GameObject childHandObject in originCustom.childHandList)
+        {
+            custom.childHandList.Remove(childHandObject);
+            GameObject copyChild = Instantiate(childHandObject, childHandObject.transform.position, childHandObject.transform.rotation);
+            copyChild.name = childHandObject.name;
+            custom.childHandList.Add(copyChild);
+        }
+        while (custom.childHandList.Count>0)
         {
             foreach(GameObject childHandObject in custom.childHandList)
             {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
@@ -14,7 +15,8 @@ public class Timer : MonoBehaviour
     private float startTime;
     private float min;
     private float sec;
-   
+
+    public UnityEvent OnTimeOver;
 
     private void Awake()
     {
@@ -24,6 +26,8 @@ public class Timer : MonoBehaviour
     private void FixedUpdate()
     {
         TimeSetting();
+        if (timer <= 0)
+            OnTimeOver?.Invoke();
     }
 
     private void TimeSetting()
