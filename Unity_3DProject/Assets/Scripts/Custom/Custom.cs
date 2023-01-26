@@ -6,7 +6,9 @@ public class Custom : MonoBehaviour
 {
     public bool isCreated  { get; set; }
 
-    public GameObject hand;
+    public bool isOnHand = false;
+    public List<GameObject> childHandList = new List<GameObject>();
+    public GameObject parentHand;
 
     private void Awake()
     {

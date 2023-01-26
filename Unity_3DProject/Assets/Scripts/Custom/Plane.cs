@@ -6,6 +6,7 @@ public class Plane : MonoBehaviour
 {
     private Renderer render;
     private Renderer objectRender;
+    private Custom hand;
 
     [SerializeField]
     private Color normal;
@@ -16,6 +17,7 @@ public class Plane : MonoBehaviour
     {
         render = GetComponent<Renderer>();
         objectRender = transform.parent.GetComponent<Renderer>();
+        hand = transform.root.GetComponentInChildren<Custom>();
     }
 
     private void OnMouseOver()
@@ -62,8 +64,9 @@ public class Plane : MonoBehaviour
 
                         if(hit.transform.parent.name=="Hand")
                         {
-                            Custom customHand = curSelected.GetComponentInChildren<Custom>();
-                            customHand.hand = transform.parent.gameObject;
+                            hand.childHandList.Add(curSelected);
+                            curSelected.GetComponentInChildren<Custom>().isOnHand = true;
+                            curSelected.GetComponentInChildren<Custom>().parentHand = hit.transform.parent.gameObject;
                         }
                     }
                     

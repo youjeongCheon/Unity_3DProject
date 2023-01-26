@@ -69,18 +69,53 @@ public class CustomManager : SingleTon<CustomManager>
         foreach (GameObject gameObject in listObject)
         {
             DontDestroyOnLoad(gameObject);
+            ////////////////////////////////////////////////////////////////////
+            Custom custom = gameObject.GetComponentInChildren<Custom>();
+            if (custom.childHandList.Count > 0)
+                AttatchHand(gameObject,robot);
+            else if (!custom.isOnHand)
+            {
+                GameObject copyobject = Instantiate(gameObject, gameObject.transform.position, gameObject.transform.rotation);
+                copyobject.name = gameObject.name;
 
-            GameObject copyobject = Instantiate(gameObject, gameObject.transform.position, gameObject.transform.rotation);
-            copyobject.name = gameObject.name;
-            if (gameObject.GetComponentInChildren<Custom>().hand != null)
-                copyobject.transform.parent = gameObject.GetComponentInChildren<Custom>().hand.transform;
-            else if (copyobject.name == "Wheel_Joint_Right")
-                copyobject.transform.parent = robot.transform.GetChild(0);
-            else if (copyobject.name == "Wheel_Joint_Left")
-                copyobject.transform.parent = robot.transform.GetChild(1);
-            else
-                copyobject.transform.parent = robot.transform;
+                if (copyobject.name == "Wheel_Joint_Right")
+                    copyobject.transform.parent = robot.transform.GetChild(0);
+                else if (copyobject.name == "Wheel_Joint_Left")
+                    copyobject.transform.parent = robot.transform.GetChild(1);
+                else
+                    copyobject.transform.parent = robot.transform;
+            }
+            ///////////////////////////////////////////////////////////////
+         
+           
+            
         }
         DontDestroyOnLoad(robot);
+    }
+
+    private void AttatchHand(GameObject handObject, GameObject robot)
+    {
+        GameObject handCopy = Instantiate(handObject, handObject.transform.position, handObject.transform.rotation);
+        handCopy.name = handObject.name;
+        Custom custom = handCopy.GetComponentInChildren<Custom>();
+        while(custom.childHandList.Count>0)
+        {
+            foreach(GameObject childHandObject in custom.childHandList)
+            {
+                childHandObject.GetComponentInChildren<Custom>().parentHand = handCopy;
+                custom.childHandList.Remove(childHandObject);
+                AttatchHand(childHandObject,robot);
+            }
+        }
+        
+        if(!custom.isOnHand)
+        {
+            handCopy.transform.parent= robot.transform;
+        }
+        else
+        {
+            handCopy.transform.parent = handCopy.GetComponentInChildren<Custom>().parentHand.transform;
+
+        }
     }
 }
