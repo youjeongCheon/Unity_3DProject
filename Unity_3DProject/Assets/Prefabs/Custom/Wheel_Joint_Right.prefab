@@ -401,6 +401,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d5d7f2aae8402948ba6ee35a08fc446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOnHand: 0
+  childHandList: []
+  parentHand: {fileID: 0}
 --- !u!1001 &5017170514293608567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -456,14 +459,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 296713547027946036, guid: e772a1ab015b16f4789dabce6ab97cd1, type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 1440843480754088805}
     - target: {fileID: 296713547027946037, guid: e772a1ab015b16f4789dabce6ab97cd1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 296713547149165707, guid: e772a1ab015b16f4789dabce6ab97cd1, type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 1440843480754088805}
     - target: {fileID: 296713547149165716, guid: e772a1ab015b16f4789dabce6ab97cd1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 296713548157767609, guid: e772a1ab015b16f4789dabce6ab97cd1, type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 1440843480754088805}
+    - target: {fileID: 814146591013533828, guid: e772a1ab015b16f4789dabce6ab97cd1, type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 1440843480754088805}
+    - target: {fileID: 2443207152994460939, guid: e772a1ab015b16f4789dabce6ab97cd1, type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 1440843480754088805}
     - target: {fileID: 3329952589180887617, guid: e772a1ab015b16f4789dabce6ab97cd1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -472,6 +495,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 5021151785216502308, guid: e772a1ab015b16f4789dabce6ab97cd1, type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 1440843480754088805}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e772a1ab015b16f4789dabce6ab97cd1, type: 3}
 --- !u!4 &4737418910335735596 stripped

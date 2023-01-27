@@ -22,11 +22,13 @@ public class GameManager : SingleTon<GameManager>
     public float money = 0;
     public float bestMoney=0;
 
-    private void Start()
+    public override void Awake()
     {
+        base.Awake();
         Time.timeScale = 0;
         SettingRobot();
     }
+   
 
     private void SettingRobot()
     {

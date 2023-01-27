@@ -11,6 +11,9 @@ public class MoveArrow : MonoBehaviour
 	[SerializeField]
 	private float positionOffset;
 
+	[SerializeField]
+	private Transform targetTransform;
+
 	private Transform rootTransform;
 	private Transform gfxTransform;
 
@@ -23,6 +26,7 @@ public class MoveArrow : MonoBehaviour
 	{
 		rootTransform = transform.parent.parent;
 		gfxTransform = rootTransform.GetChild(0);
+		rootTransform = targetTransform;
 		gameObject.SetActive(false);
 	}
 
