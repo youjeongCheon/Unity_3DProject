@@ -5,9 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+   
     public void LoadGameScene()
     {
         CustomManager.Instance.RobotIntoGame();
         CustomManager.Instance.LoadGameScene();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }

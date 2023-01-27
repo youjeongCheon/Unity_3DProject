@@ -59,7 +59,7 @@ public class CustomManager : SingleTon<CustomManager>
     public void LoadGameScene()
     {
         DontDestroyOnLoad(gameObject);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void RobotIntoGame()

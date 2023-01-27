@@ -2342,7 +2342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877433219}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000048111164, y: -0.020146593, z: -1.7150367}
+  m_LocalPosition: {x: 0.00004813634, y: -0.020146593, z: -1.7150367}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3098,6 +3098,34 @@ PrefabInstance:
       value: UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4105805553788630737, guid: 1cf98e056acf9fd4699fb8b7ddb82105, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105805553842785146, guid: 1cf98e056acf9fd4699fb8b7ddb82105, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105805553842785146, guid: 1cf98e056acf9fd4699fb8b7ddb82105, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105805553842785146, guid: 1cf98e056acf9fd4699fb8b7ddb82105, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1434124099}
+    - target: {fileID: 4105805553842785146, guid: 1cf98e056acf9fd4699fb8b7ddb82105, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105805553842785146, guid: 1cf98e056acf9fd4699fb8b7ddb82105, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadCustomScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105805553842785146, guid: 1cf98e056acf9fd4699fb8b7ddb82105, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105805553842785146, guid: 1cf98e056acf9fd4699fb8b7ddb82105, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -4394,7 +4422,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556892724}
-  m_LocalRotation: {x: 0.07891963, y: 0.00014187528, z: -0.000011231774, w: 0.996881}
+  m_LocalRotation: {x: 0.078919634, y: 0.00014188266, z: -0.0000112323605, w: 0.996881}
   m_LocalPosition: {x: -36.05156, y: -1.5600002, z: 11.288905}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

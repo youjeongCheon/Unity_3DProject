@@ -55,19 +55,19 @@ public class GameManager : SingleTon<GameManager>
         if(Input.GetKeyDown(KeyCode.F1))
         {
             
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
         }
         else if(Input.GetKeyDown(KeyCode.F2))
         {
             
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
         }
     }
 
     public void LoadCustomScene()
     {
         Destroy(GameObject.Find("Robot"));
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void SetScore()
@@ -78,6 +78,6 @@ public class GameManager : SingleTon<GameManager>
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
