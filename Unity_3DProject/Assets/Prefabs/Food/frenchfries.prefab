@@ -76,9 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738db1054d0ed6247baa196802051d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodname: Fries
-  isSuccess: 0
-  startTime: 0
+  food: {fileID: 11400000, guid: af72dc4698da79e4491d8dd0115de775, type: 2}
 --- !u!1001 &7201801086639466922
 PrefabInstance:
   m_ObjectHideFlags: 0

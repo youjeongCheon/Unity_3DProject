@@ -76,9 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738db1054d0ed6247baa196802051d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodname: Burger
-  isSuccess: 0
-  startTime: 0
+  food: {fileID: 11400000, guid: a01c293723013c4409e093d374111e53, type: 2}
 --- !u!1001 &1285689075171152760
 PrefabInstance:
   m_ObjectHideFlags: 0

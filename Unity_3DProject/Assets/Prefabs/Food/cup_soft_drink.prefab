@@ -47,9 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738db1054d0ed6247baa196802051d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodname: Drink
-  isSuccess: 0
-  startTime: 0
+  food: {fileID: 11400000, guid: 63b438bcea70c0745938865dcb9ee251, type: 2}
 --- !u!54 &3479763845655632063
 Rigidbody:
   m_ObjectHideFlags: 0
