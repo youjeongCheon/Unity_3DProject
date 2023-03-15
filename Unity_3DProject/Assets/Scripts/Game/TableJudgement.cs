@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class TableJudgement : MonoBehaviour
 {
     public UnityEvent OnSuccess;
-    public UnityEvent OnFailded;
+    public UnityEvent OnFailed;
 
     /*private List<NPC> NPCs = new List<NPC>();
 

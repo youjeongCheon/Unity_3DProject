@@ -19,7 +19,7 @@ public class NPC : MonoBehaviour
     private EmoticonChanger emoticon;
     private int curWayIndex = 0;
     private int GFXcount = 10;
-    private bool eatCompite = false;
+    private bool eatComplite = false;
 
     private void Awake()
     {
@@ -37,14 +37,14 @@ public class NPC : MonoBehaviour
     {
         if(other.gameObject.layer== LayerMask.NameToLayer("WayPoint"))
         {
-            if(!eatCompite && curWayIndex>= NavMeshManager.Instance.wayPoints.Count-1)
+            if(!eatComplite && curWayIndex>= NavMeshManager.Instance.wayPoints.Count-1)
             {
                 // Goal Àü PosPoint¿¡ µµÂø
                 OnOrdered?.Invoke();
                 
                 agent.destination = goal.position;
             }
-            else if(eatCompite&&curWayIndex==0)
+            else if(eatComplite&&curWayIndex==0)
             {
                 Destroy(gameObject);
                 NavMeshManager.Instance.SetGoalPoints(goal);
@@ -57,7 +57,7 @@ public class NPC : MonoBehaviour
         }
         if(other.gameObject==goal.gameObject)
         {
-            if (eatCompite)
+            if (eatComplite)
             {
                 agent.destination = NavMeshManager.Instance.wayPoints[curWayIndex].position;
 
@@ -85,7 +85,7 @@ public class NPC : MonoBehaviour
 
     private void GoOutside()
     {
-        eatCompite = true;
+        eatComplite = true;
         seat.NPCstand(this);
         transform.root.position = goal.transform.position;
         anim.SetBool("isWalking", true);
@@ -94,7 +94,7 @@ public class NPC : MonoBehaviour
 
     private void SetNextPoint()
     {
-        if (eatCompite)
+        if (eatComplite)
             curWayIndex--;
         else
             curWayIndex++;

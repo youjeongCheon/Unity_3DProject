@@ -69,7 +69,7 @@ public class Food : MonoBehaviour
        }
        else
        {
-            table.OnFailded?.Invoke();
+            table.OnFailed?.Invoke();
             StartCoroutine(DestroyFood());
        }
         /*int orderCount = table.FoodOrders.Count;
