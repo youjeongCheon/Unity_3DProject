@@ -15,6 +15,6 @@ public class Seat : MonoBehaviour
 
     public void NPCstand(NPC npc)
     {
-        table.NPCstand(npc);
+        //table.NPCstand(npc);
     }
 }

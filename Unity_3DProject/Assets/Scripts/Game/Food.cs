@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Food : MonoBehaviour
 {
-    public string foodname;
+    public FoodData food;
    
     private bool isStay = false;
     private bool isGround = false;
@@ -18,7 +19,7 @@ public class Food : MonoBehaviour
         {
             isGround = true;
             GameManager.Instance.money -= 1000;
-            UIManager.Instance.SetMoney(GameManager.Instance.money);
+            UIManager.Instance.SetMoney();
             StartCoroutine(DestroyFood());
         }
     }
@@ -56,7 +57,22 @@ public class Food : MonoBehaviour
     private IEnumerator FoodJudgement()
     {
         yield return new WaitForSeconds(2.0f);
-        int orderCount = table.FoodOrders.Count;
+
+       if(isStay && table.Orders.ContainsValue(food))
+       {
+            NPC npc = table.Orders.FirstOrDefault(x => x.Value == food).Key;
+            table.OrderComplete(npc);
+            GameManager.Instance.money += food.Cost;
+            UIManager.Instance.SetMoney();
+            StartCoroutine(DestroyFood());
+            table.OnSuccess?.Invoke();
+       }
+       else
+       {
+            table.OnFailded?.Invoke();
+            StartCoroutine(DestroyFood());
+       }
+        /*int orderCount = table.FoodOrders.Count;
         foreach(Order order in table.Orders)
         {
             if(isStay && string.Equals(order.data.FoodName, foodname))
@@ -78,8 +94,7 @@ public class Food : MonoBehaviour
         {
             table.OnFailded?.Invoke();
             StartCoroutine(DestroyFood());
-        }
-
+        }*/
     }
 
     private IEnumerator DestroyFood()

@@ -43,9 +43,9 @@ public class UIManager : SingleTon<UIManager>
         bestMoneyUI.text = GameManager.Instance.bestMoney.ToString();
     }
 
-    public void SetMoney(float money)
+    public void SetMoney()
     {
-        moneyUI.text = money.ToString();
+        moneyUI.text = GameManager.Instance.money.ToString();
     }
 
     public void SetTime(float min, float sec)
