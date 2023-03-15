@@ -43,11 +43,11 @@ public class MoveArrow : MonoBehaviour
 		startPosition = rootTransform.position;
 		startScreen = Input.mousePosition;
 
-		/*xDot = Vector3.Dot(transform.right, Camera.main.transform.right);
-		yDot = Vector3.Dot(transform.right, Camera.main.transform.up);*/
+        xDot = Vector3.Dot(transform.right, Camera.main.transform.right);
+        yDot = Vector3.Dot(transform.right, Camera.main.transform.up);
 
-		xDot = Vector3.Dot(moveAxis, Camera.main.transform.right);
-        yDot = Vector3.Dot(moveAxis, Camera.main.transform.up);
+        /*xDot = Vector3.Dot(moveAxis, Camera.main.transform.right);
+        yDot = Vector3.Dot(moveAxis, Camera.main.transform.up);*/
 
     }
 
@@ -56,11 +56,11 @@ public class MoveArrow : MonoBehaviour
 		Vector3 drag = Input.mousePosition - startScreen;
 		rootTransform.position = startPosition;
 
-		rootTransform.position += moveAxis.x * xDot * drag.x * moveSpeed * rootTransform.right;
-		rootTransform.position += moveAxis.x * yDot * drag.y * moveSpeed * rootTransform.right;
-		rootTransform.position += moveAxis.y * xDot * drag.x * moveSpeed * rootTransform.up;
-		rootTransform.position += moveAxis.y * yDot * drag.y * moveSpeed * rootTransform.up;
-		rootTransform.position += moveAxis.z * xDot * drag.x * moveSpeed * rootTransform.forward;
-		rootTransform.position += moveAxis.z * yDot * drag.y * moveSpeed * rootTransform.forward;
+		rootTransform.position += Mathf.Abs(moveAxis.x) * xDot * drag.x * moveSpeed * rootTransform.right;
+		rootTransform.position += Mathf.Abs(moveAxis.x) * yDot * drag.y * moveSpeed * rootTransform.right;
+		rootTransform.position += Mathf.Abs(moveAxis.y) * xDot * drag.x * moveSpeed * rootTransform.up;
+		rootTransform.position += Mathf.Abs(moveAxis.y) * yDot * drag.y * moveSpeed * rootTransform.up;
+		rootTransform.position += Mathf.Abs(moveAxis.z) * xDot * drag.x * moveSpeed * rootTransform.forward;
+		rootTransform.position += Mathf.Abs(moveAxis.z) * yDot * drag.y * moveSpeed * rootTransform.forward;
 	}
 }
