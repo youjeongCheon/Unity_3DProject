@@ -42,9 +42,6 @@ public class ScaleArrow : MonoBehaviour
 
         xDot = Vector3.Dot(transform.right, Camera.main.transform.right);
         yDot = Vector3.Dot(transform.right, Camera.main.transform.up);
-
-       /* xDot = Vector3.Dot(scaleAxis, Camera.main.transform.right);
-		yDot = Vector3.Dot(scaleAxis, Camera.main.transform.up);*/
 	}
 
 	private void OnMouseDrag()
@@ -52,11 +49,11 @@ public class ScaleArrow : MonoBehaviour
 		Vector3 drag = Input.mousePosition - startScreen;
 		gfxTransform.localScale = startScale;
 
-		gfxTransform.localScale += scaleAxis.x * xDot * drag.x * scaleSpeed * Vector3.right;
-		gfxTransform.localScale += scaleAxis.x * yDot * drag.y * scaleSpeed * Vector3.right;
-		gfxTransform.localScale += scaleAxis.y * xDot * drag.x * scaleSpeed * Vector3.up;
-		gfxTransform.localScale += scaleAxis.y * yDot * drag.y * scaleSpeed * Vector3.up;
-		gfxTransform.localScale += scaleAxis.z * xDot * drag.x * scaleSpeed * Vector3.forward;
-		gfxTransform.localScale += scaleAxis.z * yDot * drag.y * scaleSpeed * Vector3.forward;
+		gfxTransform.localScale += scaleAxis.x * xDot * scaleSpeed * drag.x * Vector3.right;
+		gfxTransform.localScale += scaleAxis.x * yDot * scaleSpeed * drag.y * Vector3.right;
+		gfxTransform.localScale += scaleAxis.y * xDot * scaleSpeed * drag.x * Vector3.up;
+		gfxTransform.localScale += scaleAxis.y * yDot * scaleSpeed * drag.y * Vector3.up;
+		gfxTransform.localScale += scaleAxis.z * xDot * scaleSpeed * drag.x * Vector3.forward;
+		gfxTransform.localScale += scaleAxis.z * yDot * scaleSpeed * drag.y * Vector3.forward;
 	}
 }
