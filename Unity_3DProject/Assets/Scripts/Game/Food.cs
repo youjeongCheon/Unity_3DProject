@@ -11,7 +11,6 @@ public class Food : MonoBehaviour
     private bool isGround = false;
     private TableJudgement table;
     private Coroutine spawnCorutine;
-    private int num = 0;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -58,9 +57,9 @@ public class Food : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
 
-       if(isStay && table.Orders.ContainsValue(food))
+       if(isStay && table.FoodOrders.Contains(food))
        {
-            NPC npc = table.Orders.FirstOrDefault(x => x.Value == food).Key;
+            NPC npc = table.NPCs[table.FoodOrders.IndexOf(food)];
             table.OrderComplete(npc);
             GameManager.Instance.money += food.Cost;
             UIManager.Instance.SetMoney();
@@ -72,29 +71,6 @@ public class Food : MonoBehaviour
             table.OnFailed?.Invoke();
             StartCoroutine(DestroyFood());
        }
-        /*int orderCount = table.FoodOrders.Count;
-        foreach(Order order in table.Orders)
-        {
-            if(isStay && string.Equals(order.data.FoodName, foodname))
-            {
-                order.npc.OnSuccess();
-                table.OnSuccess?.Invoke();
-                table.OrderComplete(order.npc);
-                GameManager.Instance.money += order.data.Cost;
-                UIManager.Instance.SetMoney(GameManager.Instance.money);
-                StartCoroutine(DestroyFood());
-                break;
-            }
-            else if(isStay&&!string.Equals(order.data.FoodName, foodname))
-            {
-                num++;
-            }
-        }
-        if(orderCount>0&&num==orderCount)
-        {
-            table.OnFailded?.Invoke();
-            StartCoroutine(DestroyFood());
-        }*/
     }
 
     private IEnumerator DestroyFood()
